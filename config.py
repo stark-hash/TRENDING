@@ -88,8 +88,12 @@ Exᴀᴍᴩʟᴇ:- /set_caption 📕 Fɪʟᴇ Nᴀᴍᴇ: {filename}
 » 𝗦𝗢𝗨𝗥𝗖𝗘 𝗖𝗢𝗗𝗘 : <a href=https://www.youtube.com/watch?v=jUXGN-ffKlk>🖥️🖥️🖥️🖥️🖥️🖥️</a>
 » 𝗛𝗢𝗪 𝗧𝗢 : <a href=https://youtu.be/5M0Zkz22UYc>🤷‍♂️IDK🤷‍♂️</a>
 • ❣️ <a href=https://t.me/TGTesla>ㄒ乇丂ㄥ卂</a>
+• ❣️ <a href=https://t.me/TalismanBro>₮₳₮Ɇ</a>
 • ❣️ <a href=https://youtu.be/GfulqsSnTv4>Formula 1</a>
-• ❣️ <a href=https://t.me/TalismanBro>₮₳₮Ɇ</a> """
+• ❣️ <a href=https://t.me/FDBotz>FDBotz</a>
+• ❣️ <a href=https://t.me/ANAUTOFILTERBOT>AUTO FILTER BOT</a>
+• ❣️ <a href=https://t.me/FDFileStoreBot>File Store Bot</a>"""
+
 
 
     PROGRESS_BAR = """<b>\n
