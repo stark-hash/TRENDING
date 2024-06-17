@@ -26,7 +26,7 @@ import random
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ForceReply, CallbackQuery
 from helper.database import db
-from config import Config, Txt, LOG_CHANNEL  
+from config import Config, Txt  
   
 
 @Client.on_message(filters.private & filters.command("start"))
@@ -61,7 +61,7 @@ async def pm_text(bot, message):
     if user_id in Config.ADMIN: return # ignore admins
     await message.reply_text("<b> Incorrect format, Please try again.!</b>")
     await bot.send_message(
-        chat_id=LOG_CHANNEL,
+        chat_id=Config.LOG_CHANNEL,
         text=f"<b>#𝐏𝐌_𝐌𝐒𝐆\n\nNᴀᴍᴇ : {user}\n\nID : {user_id}\n\nMᴇssᴀɢᴇ : {content}</b>"
     )
 @Client.on_callback_query()
