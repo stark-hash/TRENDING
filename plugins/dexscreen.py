@@ -33,27 +33,16 @@ def token_info(token_address):
         info = r.json()
 
         # Extracting information from the response
-        name = info.get['name']
-        symbol = info.get['symbol']
-        price = info.get['priceUsd']
-        fiveminute = info.get['m5', {}].get['buys']
-        onehours = info.get['h1', {}].get['buys']
-        sixhours = info.get['h6', {}].get['buys']
-        twentyfourhours = info.get['h24', {}].get['buys']
-        volume_24h = info.get('volume', {}).get('usd')
-        
+        name = info.get('name')
+        symbol = info.get('symbol')
+        price = info.get('priceUsd')
+
 
         token_info = f"""--**Token Information**--
 Name : `{name}`
 Symbol : `{symbol}`
-Price (USD) : `{price}`
-5m : `{fiveminute}`
-1h : `{onehours}`
-6h : `{sixhours}`
-24h : `{twentyfourhours}`
-24h Volume (USD) : `{volume_24h}`"""
+Price (USD) : `{price}`"""
         
         return token_info
     except Exception as error:
         return f"An error occurred: {error}"
-    
