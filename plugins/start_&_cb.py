@@ -57,9 +57,9 @@ async def start(client, message):
 async def start(client, message):
     user = message.from_user
     if Config.START_PIC:
-        await message.reply_photo(Config.START_PIC, caption=Txt.NEWWALLET_TXT.format(user.mention), reply_markup=button)       
+        await message.reply_photo(Config.START_PIC, caption=Txt.NEWWALLET_TXT.format(user.mention))       
     else:
-        await message.reply_text(text=Txt.NEWWALLET_TXT.format(user.mention), reply_markup=button, disable_web_page_preview=True)
+        await message.reply_text(text=Txt.NEWWALLET_TXT.format(user.mention), disable_web_page_preview=True)
    
 @Client.on_message(filters.private & filters.text & filters.incoming)
 async def pm_text(bot, message):
@@ -387,7 +387,7 @@ async def cb_handler(client, query: CallbackQuery):
         
     elif data == "disabled":
         await query.message.edit_text(
-            text=Txt.SETTINGS_TXT,
+            text=Txt.SETTINGS2_TXT,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[
                 #⚠️ don't change source code & source link ⚠️ #
@@ -422,7 +422,7 @@ async def cb_handler(client, query: CallbackQuery):
         )
     elif data == "enabled":
         await query.message.edit_text(
-            text=Txt.SETTINGS_TXT,
+            text=Txt.SETTINGS1_TXT,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[
                 #⚠️ don't change source code & source link ⚠️ #

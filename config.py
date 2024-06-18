@@ -102,6 +102,59 @@ Phantom or Solflare wallet and any other trading bot private keys are accepted.
 
 Please enter it below ⬇️"""
 
+    SETTINGS1_TXT ="""Settings:
+
+GENERAL SETTINGS
+Language: Shows the current language. Tap to switch between available languages.
+Minimum Position Value: Minimum position value to show in portfolio. Will hide tokens below this threshhold. Tap to edit.
+
+AUTO BUY
+Immediately buy when pasting token address. Tap to toggle.
+
+BUTTONS CONFIG
+Customize your buy and sell buttons for buy token and manage position. Tap to edit.
+
+SLIPPAGE CONFIG
+Customize your slippage settings for buys and sells. Tap to edit.
+Max Price Impact is to protect against trades in extremely illiquid pools.
+
+MEV PROTECT
+MEV Protect accelerates your transactions and protect against frontruns to make sure you get the best price possible.
+Turbo: BONKbot will use MEV Protect, but if unprotected sending is faster it will use that instead.
+Secure: Transactions are guaranteed to be protected. This is the ultra secure option, but may be slower.;
+
+TRANSACTION PRIORITY
+Increase your Transaction Priority to improve transaction speed. Select preset or tap to edit.
+
+SELL PROTECTION;
+100% sell commands require an additional confirmation step.  Tap to toggle."""
+
+    SETTINGS1_TXT ="""Settings:
+
+GENERAL SETTINGS
+Language: Shows the current language. Tap to switch between available languages.
+Minimum Position Value: Minimum position value to show in portfolio. Will hide tokens below this threshhold. Tap to edit.
+
+AUTO BUY
+Immediately buy when pasting token address. Tap to toggle.
+
+BUTTONS CONFIG
+Customize your buy and sell buttons for buy token and manage position. Tap to edit.
+
+SLIPPAGE CONFIG
+Customize your slippage settings for buys and sells. Tap to edit.
+Max Price Impact is to protect against trades in extremely illiquid pools.
+
+MEV PROTECT
+MEV Protect accelerates your transactions and protect against frontruns to make sure you get the best price possible.
+Turbo: BONKbot will use MEV Protect, but if unprotected sending is faster it will use that instead.
+Secure: Transactions are guaranteed to be protected. This is the ultra secure option, but may be slower.;
+
+TRANSACTION PRIORITY
+Increase your Transaction Priority to improve transaction speed. Select preset or tap to edit.
+
+SELL PROTECTION;
+100% sell commands require an additional confirmation step.  Tap to toggle."""
     NEWWALLET_TXT = """Your New Wallet has been Created Successfully 
 Address: <code>2qBi9NZizBkS1tn6GjKwzL6yBkU2nY6ivs4d3bXfzKeE</code>
 Balance: 0.000000000 SOL"""
