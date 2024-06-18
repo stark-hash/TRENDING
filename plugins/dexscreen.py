@@ -8,8 +8,6 @@ API = "https://api.dexscreener.com/latest/dex/tokens/"
 
 BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton('Close', callback_data="close")]])
 
-
-
 @Client.on_message(filters.command("token"))
 async def reply_info(client, message):
     try:
@@ -35,17 +33,25 @@ def token_info(token_address):
         info = r.json()
 
         # Extracting information from the response
-        name = info.get('name', 'N/A')
-        symbol = info.get('symbol', 'N/A')
-        price = info.get('price', {}).get('usd', 'N/A')
-        market_cap = info.get('marketCap', 'N/A')
-        volume_24h = info.get('volume', {}).get('usd', 'N/A')
+        name = info['name']
+        symbol = info['symbol']
+        price = info['priceUsd']
+        fiveminute = info.get['m5'].get['buys']
+        onehours = info.get['h1'].get['buys']
+        sixhours = info.get['h6'].get['buys']
+        twentyfourhours = info.get['h24'].get['buys']
+        market_cap = info.get('marketCap')
+        volume_24h = info.get('volume', {}).get('usd')
         price_change_24h = info.get('priceChange', {}).get('percentage', {}).get('24h', 'N/A')
 
         token_info = f"""--**Token Information**--
 Name : `{name}`
 Symbol : `{symbol}`
 Price (USD) : `{price}`
+5m : `{fiveminute}`
+1h : `{onehours}`
+6h : `{sixhours}`
+24h : `{twentyfourhours}`
 Market Cap : `{market_cap}`
 24h Volume (USD) : `{volume_24h}`
 24h Price Change (%) : `{price_change_24h}`"""
