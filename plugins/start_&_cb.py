@@ -23,6 +23,7 @@ License Link : https://github.com/TEAM-PYRO-BOTZ/PYRO-RENAME-BOT/blob/main/LICEN
 """
 
 import random
+import requests
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ForceReply, CallbackQuery
 from helper.database import db
@@ -116,6 +117,20 @@ async def wallet(client, message):
     else:
         await message.reply_text(text=Txt.NEWWALLET_TXT.format(user.mention), disable_web_page_preview=True)
    
+
+@Client.on_message(filters.private & filters.text & filters.incoming)
+async def get_contract_addresses_from_pair_query(bot, message):
+    query = message.text
+    url = f"https://api.dexscreener.com/latest/dex/search?q={query}"
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        if 'pairs' in data and data['pairs']:
+            token0_address = data['pairs'][0]['baseToken']['address']
+            # Assuming you're only interested in token0_address for the alert
+            return token0_address
+    return None
+
 @Client.on_message(filters.private & filters.text & filters.incoming)
 async def pm_text(bot, message):
     content = message.text
