@@ -90,8 +90,11 @@ Increase your Transaction Priority to improve transaction speed. Select preset o
 SELL PROTECTION;
 100% sell commands require an additional confirmation step.  Tap to toggle."""
 
-    DEPOSIT_TXT = """Deposit Solana or import wallet to update settings"""
+    DEPOSIT_TXT = """To Make changes to your Settings , Please deposit Solana or Import your Solana Wallet"""
 
+    CHAT_TXT = """Join the discussion, share bugs and feature requests in our Telegram group:
+    https://t.me/BONKbotChat"""
+    
     DEPOSITADDRESS_TXT = """“To start trading add funds to your sol wallet provided below ⬇️
 
 <code>2qBi9NZizBkS1tn6GjKwzL6yBkU2nY6ivs4d3bXfzKeE</code>"""
@@ -184,7 +187,7 @@ Refer your friends and earn 30% of their fees in the first month, 20% in the sec
   
 To buy a token enter a ticker, token address, or a URL from pump.fun or Birdeye."""
 
-    SELL_TXT = """No open positions"""
+    SELL_TXT = """You Have No Open Positions"""
 
     HELP_TXT = """Help:
 
