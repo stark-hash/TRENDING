@@ -51,11 +51,20 @@ async def start(client, message):
         await message.reply_photo(Config.START_PIC, caption=Txt.START_TXT.format(user.mention), reply_markup=button)       
     else:
         await message.reply_text(text=Txt.START_TXT.format(user.mention), reply_markup=button, disable_web_page_preview=True)
+
+
+@Client.on_message(filters.private & filters.command("wallet"))
+async def start(client, message):
+    user = message.from_user
+    if Config.START_PIC:
+        await message.reply_photo(Config.START_PIC, caption=Txt.NEWWALLET_TXT.format(user.mention), reply_markup=button)       
+    else:
+        await message.reply_text(text=Txt.NEWWALLET_TXT.format(user.mention), reply_markup=button, disable_web_page_preview=True)
    
 @Client.on_message(filters.private & filters.text & filters.incoming)
 async def pm_text(bot, message):
     content = message.text
-    user = message.from_user.first_name
+    user = message.from_user
     user_id = message.from_user.id
     if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
     if user_id in Config.ADMIN: return # ignore admins
