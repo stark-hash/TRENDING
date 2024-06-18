@@ -33,16 +33,15 @@ def token_info(token_address):
         info = r.json()
 
         # Extracting information from the response
-        name = info['name']
-        symbol = info['symbol']
-        price = info['priceUsd']
-        fiveminute = info.get['m5'].get['buys']
-        onehours = info.get['h1'].get['buys']
-        sixhours = info.get['h6'].get['buys']
-        twentyfourhours = info.get['h24'].get['buys']
-        market_cap = info.get('marketCap')
+        name = info.get['name']
+        symbol = info.get['symbol']
+        price = info.get['priceUsd']
+        fiveminute = info.get['m5', {}].get['buys']
+        onehours = info.get['h1', {}].get['buys']
+        sixhours = info.get['h6', {}].get['buys']
+        twentyfourhours = info.get['h24', {}].get['buys']
         volume_24h = info.get('volume', {}).get('usd')
-        price_change_24h = info.get('priceChange', {}).get('percentage', {}).get('24h', 'N/A')
+        
 
         token_info = f"""--**Token Information**--
 Name : `{name}`
@@ -52,9 +51,7 @@ Price (USD) : `{price}`
 1h : `{onehours}`
 6h : `{sixhours}`
 24h : `{twentyfourhours}`
-Market Cap : `{market_cap}`
-24h Volume (USD) : `{volume_24h}`
-24h Price Change (%) : `{price_change_24h}`"""
+24h Volume (USD) : `{volume_24h}`"""
         
         return token_info
     except Exception as error:
