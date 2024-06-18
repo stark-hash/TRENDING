@@ -129,7 +129,7 @@ Increase your Transaction Priority to improve transaction speed. Select preset o
 SELL PROTECTION;
 100% sell commands require an additional confirmation step.  Tap to toggle."""
 
-    SETTINGS1_TXT ="""Settings:
+    SETTINGS2_TXT ="""Settings:
 
 GENERAL SETTINGS
 Language: Shows the current language. Tap to switch between available languages.

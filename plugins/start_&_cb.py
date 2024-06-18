@@ -101,12 +101,13 @@ async def cb_handler(client, query: CallbackQuery):
             text=Txt.REFER_TXT,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[
-                InlineKeyboardButton("Close", callback_data="close")
+                InlineKeyboardButton("Close", callback_data="close"),
+                InlineKeyboardButton("Back", callback_data="start")
             ]])
         )
     elif data == "wallet":
         await query.message.edit_text(
-            text=Txt.WALLETADDRES,
+            text=Txt.WALLETADDRESS,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[
         InlineKeyboardButton("View on Solscan", url="https://solscan.io"),
@@ -120,6 +121,7 @@ async def cb_handler(client, query: CallbackQuery):
         InlineKeyboardButton("Reset Wallet", callback_data='resetwallet'),
         InlineKeyboardButton("Export Private Key", callback_data='import_wallet')
         ],[
+        InlineKeyboardButton("Back", callback_data="start"),
         InlineKeyboardButton("Refresh", callback_data='refresh')
     ]])
         ) 
@@ -130,15 +132,19 @@ async def cb_handler(client, query: CallbackQuery):
     elif data == "refresh":
         await query.answer("Refreshed Succesfully", show_alert=True)
 
-    elif data == "Pin":
+    elif data == "pin":
         await query.answer("Error while Pinning", show_alert=True)
+
+    elif data == "english":
+        await query.answer("Set To Default Language", show_alert=True)        
 
     elif data == "buy":
         await query.message.edit_text(
             text=Txt.BUYSOL_TXT,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[
-                InlineKeyboardButton("Close", callback_data="close")
+                InlineKeyboardButton("Close", callback_data="close"),
+                InlineKeyboardButton("Back", callback_data="settings")
             ]])
         )
 
@@ -147,7 +153,8 @@ async def cb_handler(client, query: CallbackQuery):
             text=Txt.SELL_TXT,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[
-                InlineKeyboardButton("Close", callback_data="close")
+                InlineKeyboardButton("Close", callback_data="close"),
+                InlineKeyboardButton("Back", callback_data="start")
             ]])
         )
 
@@ -157,6 +164,7 @@ async def cb_handler(client, query: CallbackQuery):
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[
                 InlineKeyboardButton("Close", callback_data="close"),
+                InlineKeyboardButton("Back", callback_data="wallet"),
                 InlineKeyboardButton("Deposit SOL", callback_data="deposit_sol")
             ]])
         )
@@ -167,6 +175,7 @@ async def cb_handler(client, query: CallbackQuery):
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[
                 InlineKeyboardButton("Close", callback_data="close"),
+                InlineKeyboardButton("Back", callback_data="wallet"),
                 InlineKeyboardButton("Deposit SOL", callback_data="deposit_sol")
             ]])
         )
@@ -211,7 +220,8 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
         InlineKeyboardButton("🟢 Enabled", callback_data='sell_protection_enabled')
         ],[
-        InlineKeyboardButton("Close", callback_data='close')
+        InlineKeyboardButton("Close", callback_data='close'),
+        InlineKeyboardButton("Back", callback_data="start")
     ]])
     )
     elif data == "dev":
@@ -234,7 +244,8 @@ async def cb_handler(client, query: CallbackQuery):
         text=Txt.DEPOSITADDRESS_TXT,
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
-            InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
+            InlineKeyboardButton("Import Wallet", callback_data="import_wallet"),
+            InlineKeyboardButton("Back", callback_data="settings")
         ]])
     )
         
@@ -243,7 +254,8 @@ async def cb_handler(client, query: CallbackQuery):
         text=Txt.IMPORTWALLET_TXT,
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
-            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol")
+            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Back", callback_data="start")
         ]])
     )
 
@@ -253,16 +265,7 @@ async def cb_handler(client, query: CallbackQuery):
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
             InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
-            InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
-        ]])
-    )
-
-    elif data == "english":
-        await query.message.edit_text(
-        text=Txt.DEPOSIT_TXT,
-        disable_web_page_preview=True,
-        reply_markup=InlineKeyboardMarkup([[
-            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Back", callback_data="settings"),
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ]])
     )
@@ -274,6 +277,7 @@ async def cb_handler(client, query: CallbackQuery):
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
             InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Back", callback_data="settings"),
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ]])
     )
@@ -284,6 +288,7 @@ async def cb_handler(client, query: CallbackQuery):
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
             InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Back", callback_data="settings"),
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ]])
     )
@@ -294,6 +299,7 @@ async def cb_handler(client, query: CallbackQuery):
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
             InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Back", callback_data="settings"),
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ]])
     )
@@ -304,6 +310,7 @@ async def cb_handler(client, query: CallbackQuery):
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
             InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Back", callback_data="settings"),
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ]])
     )
@@ -314,6 +321,7 @@ async def cb_handler(client, query: CallbackQuery):
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
             InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Back", callback_data="settings"),
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ]])
     )
@@ -324,6 +332,7 @@ async def cb_handler(client, query: CallbackQuery):
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
             InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Back", callback_data="settings"),
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ]])
     )
@@ -334,6 +343,7 @@ async def cb_handler(client, query: CallbackQuery):
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
             InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Back", callback_data="settings"),
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ]])
     )
@@ -344,6 +354,7 @@ async def cb_handler(client, query: CallbackQuery):
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
             InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Back", callback_data="settings"),
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ]])
     )
@@ -354,6 +365,7 @@ async def cb_handler(client, query: CallbackQuery):
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
             InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Back", callback_data="settings"),
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ]])
     )
@@ -364,6 +376,7 @@ async def cb_handler(client, query: CallbackQuery):
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
             InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Back", callback_data="settings"),
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ]])
     )
@@ -374,6 +387,7 @@ async def cb_handler(client, query: CallbackQuery):
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
             InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Back", callback_data="settings"),
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ]])
     )
@@ -384,6 +398,7 @@ async def cb_handler(client, query: CallbackQuery):
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
             InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
+            InlineKeyboardButton("Back", callback_data="settings"),
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ]])
     )
