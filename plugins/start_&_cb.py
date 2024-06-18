@@ -167,12 +167,23 @@ async def cb_handler(client, query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup([[
         InlineKeyboardButton("Deposit SOL", callback_data="deposit_sol")
         ],[
+        InlineKeyboardButton("Withdraw SOL", callback_data="withdrawsol")
+        ],[
         InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[ 
         InlineKeyboardButton("🔙Back", callback_data="start")
     ]])
         ) 
-        
+
+    elif data == "withdrawsol":
+        await query.message.edit_text(
+            text=Txt.BALANCEFETCH_TXT,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup([[
+                InlineKeyboardButton("Back", callback_data="wallet")
+            ]])
+        )
+
     elif data == "resetwallet":
         await query.answer("Wallet Reset Successfully", show_alert=True)
     
