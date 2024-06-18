@@ -67,7 +67,6 @@ async def pm_text(bot, message):
     user = message.from_user
     user_id = message.from_user.id
     if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
-    if user_id in Config.ADMIN: return # ignore admins
     await message.reply_text("<b> Incorrect format, Please try again.!</b>")
     await bot.send_message(
         chat_id=Config.LOG_CHANNEL,
