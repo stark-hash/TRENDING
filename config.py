@@ -99,6 +99,8 @@ SELL PROTECTION;
 
 <code>2qBi9NZizBkS1tn6GjKwzL6yBkU2nY6ivs4d3bXfzKeE</code>"""
 
+    BALANCEFETCH_TXT = """You Have No Balance To Withdraw."""
+
     IMPORTWALLET_TXT = """What is the private key or seed phrase of the wallet that you want to import?
 
 Phantom or Solflare wallet and any other trading bot private keys are accepted.
