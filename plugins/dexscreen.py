@@ -33,9 +33,9 @@ def token_info(token_address):
         info = r.json()
 
         # Extracting information from the response
-        name = info.get('name')
-        symbol = info.get('symbol')
-        price = info.get('priceUsd')
+        name = info('name')
+        symbol = info('symbol')
+        price = info('priceUsd')
 
 
         token_info = f"""--**Token Information**--
