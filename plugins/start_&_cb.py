@@ -85,7 +85,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
         InlineKeyboardButton("Help", callback_data='help'),
         InlineKeyboardButton("Refer Friends", callback_data='refer_friends'),
-        InlineKeyboardButton("Alerts", url='https://t.me/BONKbotNewTokenAlerts')
+        InlineKeyboardButton("Alerts", url="https://t.me/BONKbotNewTokenAlerts")
         ],[
         InlineKeyboardButton("Wallet", callback_data='wallet'),
         InlineKeyboardButton("Settings", callback_data='settings')
@@ -129,6 +129,9 @@ async def cb_handler(client, query: CallbackQuery):
     
     elif data == "refresh":
         await query.answer("Refreshed Succesfully", show_alert=True)
+
+    elif data == "Pin":
+        await query.answer("Error while Pinning", show_alert=True)
 
     elif data == "buy":
         await query.message.edit_text(
