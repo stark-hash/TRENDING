@@ -54,7 +54,7 @@ async def start(client, message):
 
 
 @Client.on_message(filters.private & filters.command("wallet"))
-async def start(client, message):
+async def wallet(client, message):
     user = message.from_user
     if Config.START_PIC:
         await message.reply_photo(Config.START_PIC, caption=Txt.NEWWALLET_TXT.format(user.mention))       
@@ -106,7 +106,7 @@ async def cb_handler(client, query: CallbackQuery):
         )
     elif data == "wallet":
         await query.message.edit_text(
-            text=Txt.REFER_TXT,
+            text=Txt.WALLETADDRES,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[
         InlineKeyboardButton("View on Solscan", url="https://solscan.io"),
