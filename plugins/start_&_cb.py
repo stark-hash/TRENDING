@@ -118,8 +118,7 @@ async def wallet(client, message):
         await message.reply_text(text=Txt.NEWWALLET_TXT.format(user.mention), disable_web_page_preview=True)
    
 
-@Client.on_message(filters.private & filters.text & filters.incoming)
-async def get_token_info(bot,token_address):
+def get_token_info(token_address):
     url = f"https://api.dexscreener.io/latest/dex/tokens/{token_address}"
     response = requests.get(url)
     if response.status_code == 200:
