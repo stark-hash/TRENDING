@@ -146,7 +146,7 @@ BONKbot is completely free! We charge 1% on transactions, and keep the bot free 
 Why is my Net Profit lower than expected?
 Your Net Profit is calculated after deducting all associated costs, including Price Impact, Transfer Tax, Dex Fees, and a 1% BONKbot fee. This ensures the figure you see is what you actually receive, accounting for all transaction-related expenses.
 
-Is there a difference between @bonkbot_bot and the backup bots?
+Is there a difference between @TheBonkBot and the backup bots?
 No, they are all the same bot and you can use them interchangeably. If one is slow or down, you can use the other ones. You will have access to the same wallet and positions.
   
 Further questions? Join our Telegram group: https://t.me/BONKbotChat"""
