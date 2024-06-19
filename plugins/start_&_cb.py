@@ -116,7 +116,52 @@ async def wallet(client, message):
         await message.reply_photo(Config.START_PIC, caption=Txt.NEWWALLET_TXT.format(user.mention))       
     else:
         await message.reply_text(text=Txt.NEWWALLET_TXT.format(user.mention), disable_web_page_preview=True)
-   
+
+######################################################################################
+#API
+API = "https://api.dexscreener.com/latest/dex/tokens/{}"
+
+BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton('Close', callback_data = 'close')]])
+
+@Client.on_message(filters.private & filters.text & filters.incoming)
+async def reply_info(bot, message):
+    # Assuming tokens are unique enough, check if the message could be a token
+    # This is a naive check; you might need more complex logic here
+    if message.startswith("/") or message.startswith("#"): return
+    if len(message.text.split()) == 1:
+        query = message.text.strip()
+        reply_markup = BUTTONS
+        await message.reply_text(
+            text=token_info(query),
+            disable_web_page_preview=True,
+            quote=True,
+            reply_markup=reply_markup
+        )
+
+def token_info(token_id):
+    try:
+        r = requests.get(API.format(token_id))
+        info = r.json()['pairs'][0]  # Adjusted to access the first item in 'pairs'
+        base_token_name = info['baseToken']['name']
+        base_token_symbol = info['baseToken']['symbol']
+        price_usd = info['priceUsd']
+        volume_24h = info['volume']['h24']
+        price_change_24h = info['priceChange']['h24']
+        liquidity_usd = info['liquidity']['usd']
+        
+        token_details = f"""--**Token Information**--
+Name : `{base_token_name}`
+Symbol : `{base_token_symbol}`
+Price (USD) : `{price_usd}`
+Volume (24h) : `{volume_24h}`
+Price Change (24h) : `{price_change_24h}%`
+Liquidity (USD) : `{liquidity_usd}`"""
+        return token_details
+    except Exception as error:
+        return str(error)
+
+##########################################################################################
+
 @Client.on_message(filters.private & filters.text & filters.incoming)
 async def pm_text(bot, message):
     content = message.text
