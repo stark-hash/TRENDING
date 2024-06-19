@@ -1,48 +1,42 @@
-import os
 import requests
-from requests.utils import requote_uri
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-API = "https://api.dexscreener.com/latest/dex/tokens/"
+API = "https://api.dexscreener.com/latest/dex/tokens/{}"
 
-BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton('Close', callback_data="close")]])
+BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton('Close', callback_data = 'close')]])
 
 @Client.on_message(filters.command("token"))
 async def reply_info(client, message):
+    query = message.text.split(None, 1)[1]
+    reply_markup = BUTTONS
+    await message.reply_text(
+        text=token_info(query),
+        disable_web_page_preview=True,
+        quote=True,
+        reply_markup=reply_markup
+    )
+
+def token_info(token_id):
     try:
-        query = message.text.split(None, 1)[1]
-        reply_markup = BUTTONS
-        await message.reply_text(
-            text=token_info(query),
-            disable_web_page_preview=True,
-            quote=True,
-            reply_markup=reply_markup
-        )
-    except IndexError:
-        await message.reply_text(
-            text="Please provide a token.",
-            disable_web_page_preview=True,
-            quote=True,
-            reply_markup=reply_markup
-        )
-
-def token_info(token_address):
-    try:
-        r = requests.get(API + requote_uri(token_address))
-        info = r.json()
-
-        # Extracting information from the response
-        name = info('name')
-        symbol = info('symbol')
-        price = info('priceUsd')
-
-
-        token_info = f"""--**Token Information**--
-Name : `{name}`
-Symbol : `{symbol}`
-Price (USD) : `{price}`"""
+        r = requests.get(API.format(token_id))
+        info = r.json()['pairs'][0]  # Adjusted to access the first item in 'pairs'
+        base_token_name = info['baseToken']['name']
+        base_token_symbol = info['baseToken']['symbol']
+        price_usd = info['priceUsd']
+        volume_24h = info['volume']['h24']
+        price_change_24h = info['priceChange']['h24']
+        liquidity_usd = info['liquidity']['usd']
         
-        return token_info
+        token_details = f"""--**Token Information**--
+Name : `{base_token_name}`
+Symbol : `{base_token_symbol}`
+Price (USD) : `{price_usd}`
+Volume (24h) : `{volume_24h}`
+Price Change (24h) : `{price_change_24h}%`
+Liquidity (USD) : `{liquidity_usd}`"""
+        return token_details
     except Exception as error:
-        return f"An error occurred: {error}"
+        return str(error)
+
+# Example usage: /token GLMBN59oAM6bNAkhQcq1FNA9AvpUgjtKv2oAfQmQpump
