@@ -8,8 +8,10 @@ BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton('Close', callback_data = '
 
 @Client.on_message(filters.private & filters.text & filters.incoming)
 async def reply_info(client, message):
+    content = message.text
     # Assuming tokens are unique enough, check if the message could be a token
     # This is a naive check; you might need more complex logic here
+    if content.startswith("/") or content.startswith("#"): return
     if len(message.text.split()) == 1:
         query = message.text.strip()
         reply_markup = BUTTONS
