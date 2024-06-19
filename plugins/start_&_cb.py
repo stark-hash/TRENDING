@@ -127,7 +127,7 @@ BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton('Close', callback_data = '
 async def reply_info(bot, message):
     # Assuming tokens are unique enough, check if the message could be a token
     # This is a naive check; you might need more complex logic here
-    if message.startswith("/") or message.startswith("#"): return
+    if message.text.startswith("/") or message.text.startswith("#"): return
     if len(message.text.split()) == 1:
         query = message.text.strip()
         reply_markup = BUTTONS
