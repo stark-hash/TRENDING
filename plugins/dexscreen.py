@@ -6,8 +6,8 @@ API = "https://api.dexscreener.com/latest/dex/tokens/{}"
 
 BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton('Close', callback_data = 'close')]])
 
-@Client.on_message(filters.private & filters.text & filters.incoming)
-async def reply_info(client, message):
+@Client.on_message(filters.text)
+async def reply_info(bot, message):
     content = message.text
     # Assuming tokens are unique enough, check if the message could be a token
     # This is a naive check; you might need more complex logic here
