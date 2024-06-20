@@ -130,9 +130,9 @@ async def wallet(client, message):
 API = "https://api.dexscreener.com/latest/dex/tokens/{}"
 
 BUTTONS = InlineKeyboardMarkup([[
-            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol")
+            InlineKeyboardButton("Deposit Sol", callback_data="deposit_solstart")
         ],[
-            InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
+            InlineKeyboardButton("Import Wallet", callback_data="import_walletstart")
         ],[
             InlineKeyboardButton("Back", callback_data="start")]])
 
@@ -236,11 +236,11 @@ async def cb_handler(client, query: CallbackQuery):
             text=Txt.WALLETADDRESS,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[
-        InlineKeyboardButton("Deposit SOL", callback_data="deposit_sol")
+        InlineKeyboardButton("Deposit SOL", callback_data="deposit_solwall")
         ],[
         InlineKeyboardButton("Withdraw SOL", callback_data="withdrawsol")
         ],[
-        InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
+        InlineKeyboardButton("Import Wallet", callback_data="import_walletwall")
         ],[ 
         InlineKeyboardButton("🔙Back", callback_data="start")
     ]])
@@ -370,12 +370,13 @@ async def cb_handler(client, query: CallbackQuery):
             ]])          
         )
 
-    elif data == "deposit_solsell":
+
+    elif data == "deposit_sol":
         await query.message.edit_text(
         text=Txt.DEPOSITADDRESS_TXT,
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
-            InlineKeyboardButton("Back", callback_data="sell_manage")
+            InlineKeyboardButton("Back", callback_data="settings")
         ]])
     )
         
@@ -386,13 +387,60 @@ async def cb_handler(client, query: CallbackQuery):
         reply_markup=InlineKeyboardMarkup([[
             InlineKeyboardButton("Back", callback_data="sell_manage")
         ]])
-    )        
-    elif data == "import_wallet":
+    )   
+        
+    elif data == "deposit_solsell":
+        await query.message.edit_text(
+        text=Txt.DEPOSITADDRESS_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("Back", callback_data="sell_manage")
+        ]])
+    )
+        
+
+    elif data == "import_walletstart":
         await query.message.edit_text(
         text=Txt.IMPORTWALLET_TXT,
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
             InlineKeyboardButton("Back", callback_data="start")
+        ]])
+    )   
+        
+    elif data == "deposit_solstart":
+        await query.message.edit_text(
+        text=Txt.DEPOSITADDRESS_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("Back", callback_data="start")
+        ]])
+    )
+        
+        
+    elif data == "import_walletwall":
+        await query.message.edit_text(
+        text=Txt.IMPORTWALLET_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("Back", callback_data="wallet")
+        ]])
+    ) 
+    elif data == "deposit_solwall":
+        await query.message.edit_text(
+        text=Txt.DEPOSITADDRESS_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("Back", callback_data="wallet")
+        ]])
+    )
+        
+    elif data == "import_wallet":
+        await query.message.edit_text(
+        text=Txt.IMPORTWALLET_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("Back", callback_data="settings")
         ]])
     )
 
