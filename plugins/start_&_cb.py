@@ -249,7 +249,7 @@ async def cb_handler(client, query: CallbackQuery):
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[
                 InlineKeyboardButton("Close", callback_data="close"),
-                InlineKeyboardButton("Back", callback_data="settings")
+                InlineKeyboardButton("Back", callback_data="start")
             ]])
         )
 
@@ -257,11 +257,7 @@ async def cb_handler(client, query: CallbackQuery):
         await query.message.edit_text(
             text=Txt.SELL_TXT,
             disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup([[
-                InlineKeyboardButton("Deposit SOL", callback_data="deposit_sol")
-            ],[
-                InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
-            ],[ 
+            reply_markup=InlineKeyboardMarkup([[ 
                 InlineKeyboardButton("🔙Back", callback_data="start")
             ]])
         )
@@ -351,8 +347,7 @@ async def cb_handler(client, query: CallbackQuery):
         text=Txt.DEPOSITADDRESS_TXT,
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
-            InlineKeyboardButton("Import Wallet", callback_data="import_wallet"),
-            InlineKeyboardButton("Back", callback_data="settings")
+            InlineKeyboardButton("Back", callback_data="start")
         ]])
     )
         
@@ -361,7 +356,6 @@ async def cb_handler(client, query: CallbackQuery):
         text=Txt.IMPORTWALLET_TXT,
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
-            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol"),
             InlineKeyboardButton("Back", callback_data="start")
         ]])
     )
@@ -375,7 +369,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="settings")
+            InlineKeyboardButton("Back", callback_data="start")
         ]])
     )
 
@@ -389,7 +383,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="settings")
+            InlineKeyboardButton("Back", callback_data="start")
         ]])
     )
 
@@ -402,7 +396,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="settings")
+            InlineKeyboardButton("Back", callback_data="start")
         ]])
     )
 
@@ -415,7 +409,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="settings")
+            InlineKeyboardButton("Back", callback_data="start")
         ]])
     )
 
@@ -428,7 +422,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="settings")
+            InlineKeyboardButton("Back", callback_data="start")
         ]])
     )
 
@@ -441,7 +435,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="settings")
+            InlineKeyboardButton("Back", callback_data="start")
         ]])
     )
 
@@ -454,7 +448,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="settings")
+            InlineKeyboardButton("Back", callback_data="start")
         ]])
     )
 
@@ -467,7 +461,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="settings")
+            InlineKeyboardButton("Back", callback_data="start")
         ]])
     )
 
@@ -480,7 +474,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="settings")
+            InlineKeyboardButton("Back", callback_data="start")
         ]])
     )
 
@@ -493,7 +487,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="settings")
+            InlineKeyboardButton("Back", callback_data="start")
         ]])
     )
 
@@ -506,7 +500,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="settings")
+            InlineKeyboardButton("Back", callback_data="start")
         ]])
     )
 
@@ -519,7 +513,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="settings")
+            InlineKeyboardButton("Back", callback_data="start")
         ]])
     )
 
@@ -532,7 +526,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="settings")
+            InlineKeyboardButton("Back", callback_data="start")
         ]])
     )
         
