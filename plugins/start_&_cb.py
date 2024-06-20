@@ -258,7 +258,11 @@ async def cb_handler(client, query: CallbackQuery):
             text=Txt.SELL_TXT,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[ 
-                InlineKeyboardButton("🔙Back", callback_data="start")
+            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol")
+        ],[
+            InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
+        ],[
+            InlineKeyboardButton("Back", callback_data="start")
             ]])
         )
 
