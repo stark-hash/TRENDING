@@ -157,15 +157,17 @@ def token_info(token_id):
         info = r.json()['pairs'][0]  # Adjusted to access the first item in 'pairs'
         base_token_name = info['baseToken']['name']
         base_token_symbol = info['baseToken']['symbol']
+        base_token_address = info['baseToken']['address']
         price_usd = info['priceUsd']
-        fivemin = info['priceChange']['5m']
+        fivemin = info['priceChange']['m5']
         onehour = info['priceChange']['h1']
         sixhour = info['priceChange']['h6']
         twofourhours = info['priceChange']['h24']
         marketcap = info['fdv']
         
-        token_details = f"""|
+        token_details = f"""
 `{base_token_symbol}` | `{base_token_name}` |
+`{base_token_address}`
 
 Price ($) : `{price_usd}`
 5m:`{fivemin}%`  1h:`{onehour}%`  6h:`{sixhour}%`  24h:`{twofourhours}%`
