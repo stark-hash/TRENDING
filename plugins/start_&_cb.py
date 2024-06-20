@@ -376,7 +376,7 @@ async def cb_handler(client, query: CallbackQuery):
         text=Txt.DEPOSITADDRESS_TXT,
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
-            InlineKeyboardButton("Back", callback_data="settings")
+            InlineKeyboardButton("Back", callback_data="disabled")
         ]])
     )
         
@@ -440,7 +440,7 @@ async def cb_handler(client, query: CallbackQuery):
         text=Txt.IMPORTWALLET_TXT,
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
-            InlineKeyboardButton("Back", callback_data="settings")
+            InlineKeyboardButton("Back", callback_data="disabled")
         ]])
     )
 
@@ -453,7 +453,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="start")
+            InlineKeyboardButton("Back", callback_data="settings")
         ]])
     )
 
@@ -467,7 +467,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="start")
+            InlineKeyboardButton("Back", callback_data="settings")
         ]])
     )
 
@@ -480,7 +480,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="start")
+            InlineKeyboardButton("Back", callback_data="settings")
         ]])
     )
 
@@ -493,7 +493,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="start")
+            InlineKeyboardButton("Back", callback_data="settings")
         ]])
     )
 
@@ -506,7 +506,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="start")
+            InlineKeyboardButton("Back", callback_data="settings")
         ]])
     )
 
@@ -519,7 +519,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="start")
+            InlineKeyboardButton("Back", callback_data="settings")
         ]])
     )
 
@@ -532,7 +532,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="start")
+            InlineKeyboardButton("Back", callback_data="settings")
         ]])
     )
 
@@ -545,7 +545,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="start")
+            InlineKeyboardButton("Back", callback_data="settings")
         ]])
     )
 
@@ -558,7 +558,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="start")
+            InlineKeyboardButton("Back", callback_data="settings")
         ]])
     )
 
@@ -571,7 +571,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="start")
+            InlineKeyboardButton("Back", callback_data="settings")
         ]])
     )
 
@@ -584,7 +584,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="start")
+            InlineKeyboardButton("Back", callback_data="settings")
         ]])
     )
 
@@ -597,7 +597,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="start")
+            InlineKeyboardButton("Back", callback_data="settings")
         ]])
     )
 
@@ -610,7 +610,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="start")
+            InlineKeyboardButton("Back", callback_data="settings")
         ]])
     )
         
@@ -623,7 +623,7 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
             InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
         ],[
-            InlineKeyboardButton("Back", callback_data="start")
+            InlineKeyboardButton("Back", callback_data="settings")
         ]])
     )
     elif data == "close":
