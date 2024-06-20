@@ -164,11 +164,11 @@ def token_info(token_id):
         twofourhours = info['priceChange']['h24']
         marketcap = info['fdv']
         
-        token_details = f"""
+        token_details = f"""|
 `{base_token_symbol}` | `{base_token_name}` |
 
 Price ($) : `{price_usd}`
-5m : `{fivemin}%` 1h : `{onehour}%` 6h : `{sixhour}%` 24h : `{twofourhours}%`
+5m:`{fivemin}%`  1h:`{onehour}%`  6h:`{sixhour}%`  24h:`{twofourhours}%`
 Market Cap : `{marketcap}`
 
 Price Impact (1.0000 SOL): 1.13%
