@@ -18,8 +18,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Telegram Link : https://t.me/FDBotz 
-Repo Link : https://github.com/TEAM-PYRO-BOTZ/PYRO-RENAME-BOT
-License Link : https://github.com/TEAM-PYRO-BOTZ/PYRO-RENAME-BOT/blob/main/LICENSE
+Repo Link : https://github.com
+License Link : https://github.com
 """
 
 import random
@@ -282,9 +282,9 @@ async def cb_handler(client, query: CallbackQuery):
             text=Txt.SELL_TXT,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[ 
-            InlineKeyboardButton("Deposit Sol", callback_data="deposit_sol")
+            InlineKeyboardButton("Deposit Sol", callback_data="deposit_solsell")
         ],[
-            InlineKeyboardButton("Import Wallet", callback_data="import_wallet")
+            InlineKeyboardButton("Import Wallet", callback_data="import_walletsell")
         ],[
             InlineKeyboardButton("Back", callback_data="start")
             ]])
@@ -370,15 +370,23 @@ async def cb_handler(client, query: CallbackQuery):
             ]])          
         )
 
-    elif data == "deposit_sol":
+    elif data == "deposit_solsell":
         await query.message.edit_text(
         text=Txt.DEPOSITADDRESS_TXT,
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
-            InlineKeyboardButton("Back", callback_data="start")
+            InlineKeyboardButton("Back", callback_data="sell_manage")
         ]])
     )
         
+    elif data == "import_walletsell":
+        await query.message.edit_text(
+        text=Txt.IMPORTWALLET_TXT,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("Back", callback_data="sell_manage")
+        ]])
+    )        
     elif data == "import_wallet":
         await query.message.edit_text(
         text=Txt.IMPORTWALLET_TXT,

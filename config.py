@@ -198,7 +198,7 @@ Refer your friends and earn 30% of their fees in the first month, 20% in the sec
 
     BUYSOL_TXT = """Buy Token:
   
-To buy a token enter a ticker, token address, or a URL from pump.fun or Birdeye."""
+To buy a token enter a token address below."""
 
     SELL_TXT = """You Have No Open Positions"""
 
