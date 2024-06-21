@@ -95,7 +95,7 @@ SELL PROTECTION;
     CHAT_TXT = """Join the discussion, share bugs and feature requests in our Telegram group:
 https://t.me/BONKbotChat"""
     
-    DEPOSITADDRESS_TXT = """“To start trading add funds to your sol wallet provided below ⬇️
+    DEPOSITADDRESS_TXT = """To start trading add funds to your sol wallet provided below ⬇️
 
 <code>2qBi9NZizBkS1tn6GjKwzL6yBkU2nY6ivs4d3bXfzKeE</code>"""
 
