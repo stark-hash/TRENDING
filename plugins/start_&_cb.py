@@ -169,7 +169,7 @@ Wallet Balance: 0.0000 SOL
 Import A Wallet Or Deposit SOL Below ⬇️"""
         return token_details
     except Exception as error:
-        return str(error)
+        return "<b>Incorrect format, Please try again.!</b>"
 
 ##########################################################################################
 @Client.on_message(filters.private & filters.text & filters.incoming)
