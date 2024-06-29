@@ -24,7 +24,7 @@ import re, os, time
 
 id_pattern = re.compile(r'^.\d+$') 
 
-class Config(object):
+class Config1(object):
     # pyro client config
     API_ID    = os.environ.get("API_ID", "")
     API_HASH  = os.environ.get("API_HASH", "")
@@ -46,7 +46,7 @@ class Config(object):
 
 
 
-class Txt(object):
+class Txt1(object):
     # part of text configuration
     START_TXT = """<b>Hi {} 
 Welcome to BONKBot!
