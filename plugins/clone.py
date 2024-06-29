@@ -3,9 +3,8 @@ import re
 import logging
 from pymongo import MongoClient
 from pyrogram import Client, filters
-from config import API_ID, API_HASH, ADMINS, DB_NAME
+from config import Config
 from dotenv import load_dotenv
-from config import CLONE_DB_URI as DB_URL
 from Script import script
 
 
@@ -13,13 +12,13 @@ from Script import script
 logging.basicConfig(level=logging.INFO)
 
 # Fetch the MongoDB URI from environment variables
-mongo_client = MongoClient(DB_URL)
+mongo_client = MongoClient(Config.DB_URL)
 mongo_db = mongo_client["cloned_fdbotz"]
-mongo_collection = mongo_db[DB_NAME]
+mongo_collection = mongo_db[Config.DB_NAME]
 
 # Initialize MongoDB client with SSL configuration
 try:
-    mongo_client = MongoClient(DB_URL, serverSelectionTimeoutMS=5000)
+    mongo_client = MongoClient(Config.DB_URL, serverSelectionTimeoutMS=5000)
     mongo_db = mongo_client["cloned_fdbotz"]
     mongo_collection = mongo_db["your_collection_name"]
     logging.info("Connected to MongoDB successfully.")
@@ -51,11 +50,11 @@ async def on_clone(client, message):
             await message.reply_text("**©️ ᴛʜɪs ʙᴏᴛ ɪs ᴀʟʀᴇᴀᴅʏ ᴄʟᴏɴᴇᴅ 🐥**")
             return
 
-        if forward_from_id == 93372553:
+        if forward_from_id == 1195233863:
             msg = await message.reply_text("**👨‍💻 ᴡᴀɪᴛ ᴀ ᴍɪɴᴜᴛᴇ ɪ ᴀᴍ ᴄʀᴇᴀᴛɪɴɢ ʏᴏᴜʀ ʙᴏᴛ ❣️**")
             try:
                 ai = Client(
-                    f"{bot_token}", API_ID, API_HASH,
+                    f"{bot_token}", Config.API_ID, Config.API_HASH,
                     bot_token=bot_token,
                     plugins={"root": "clone_plugins"},
                     # Use in-memory storage to avoid SQLite issues
@@ -103,7 +102,7 @@ async def restart_bot():
         bot_token = bot['token']
         try:
             ai = Client(
-                f"{bot_token}", API_ID, API_HASH,
+                f"{bot_token}", Config.API_ID, Config.API_HASH,
                 bot_token=bot_token,
                 plugins={"root": "clone_plugins"},
             )
