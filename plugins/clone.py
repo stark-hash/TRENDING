@@ -4,8 +4,10 @@ import logging
 from pymongo import MongoClient
 from pyrogram import Client, filters
 from config import Config
-from dotenv import load_dotenv
-from Script import script
+from config import Config
+
+
+
 
 
 # Setup logging
