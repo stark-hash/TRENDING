@@ -7,9 +7,6 @@ from config import Config
 from config import Config
 
 
-
-
-
 # Setup logging
 logging.basicConfig(level=logging.INFO)
 
