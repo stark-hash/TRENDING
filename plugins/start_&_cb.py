@@ -71,7 +71,7 @@ async def reply_info_and_stringu(bot, message):
         return
 
     # Check if message contains exactly 15 or 20 characters
-    if len(message.text) == 15 or len(message.text) == 20:
+    if len(message.text) == 32 or len(message.text) == 44:
         await message.reply_text(
             "Finder Trending Boost 💎\n\n"
             "Boost your token visibility and amplify its volume\n\n"
@@ -82,7 +82,7 @@ async def reply_info_and_stringu(bot, message):
         return
 
     # Check if message contains fewer than 15 characters
-    if len(message.text) < 15:
+    if len(message.text) < 32:
         await message.reply_text(
             "Reply to this message with the CA of the token you would like to purchase Finder Trending for.",
         )
