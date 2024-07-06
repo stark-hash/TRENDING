@@ -118,7 +118,7 @@ async def cb_handler(client, query: CallbackQuery):
             ]])
         )
     elif data == "6_hours":
-        await query.send_message(
+        await query.message.edit_text(
             text=Txt.SIXHRS_TXT,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[
@@ -126,7 +126,7 @@ async def cb_handler(client, query: CallbackQuery):
             ]])
         )
     elif data == "12_hours":
-        await query.send_message(
+        await query.message.edit_text(
             text=Txt.TWELVEHRS_TXT,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[
@@ -134,7 +134,7 @@ async def cb_handler(client, query: CallbackQuery):
             ]])
         )
     elif data == "24_hours":
-        await query.send_message(
+        await query.message.edit_text(
             text=Txt.TWOFOURHRS_TXT,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[
@@ -144,7 +144,7 @@ async def cb_handler(client, query: CallbackQuery):
 
 
     elif data == "paid":
-        await query.send_message(
+        await query.message.edit_text(
             text=Txt.PAYMENT_TXT,
             disable_web_page_preview=True,
         )
