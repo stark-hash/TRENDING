@@ -144,7 +144,8 @@ async def cb_handler(client, query: CallbackQuery):
 
 
     elif data == "paid":
-        await query.message.edit_text(
+        await client.send_message(
+            chat_id=query.message.chat.id,
             text=Txt.PAYMENT_TXT,
             disable_web_page_preview=True,
         )
