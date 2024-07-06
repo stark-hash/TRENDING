@@ -85,7 +85,6 @@ async def reply_info_and_stringu(bot, message):
     if len(message.text) < 15:
         await message.reply_text(
             "Reply to this message with the CA of the token you would like to purchase Finder Trending for.",
-            reply_markup=BUTTONS
         )
         return
 ############################################################################################
