@@ -48,184 +48,43 @@ class Config(object):
 
 class Txt(object):
     # part of text configuration
-    START_TXT = """<b>Hi {} 
-Welcome to BONKBot!
+    START_TXT = """Finder Trending Boost  // 
 
-Solana’s fastest bot to trade any coin (SPL token), built by the BONK community!
+⚡️ Guaranteed Trending
 
-You currently have no SOL in your wallet. To start trading, deposit SOL to your BONKbot wallet address:
+💎 Increase volume & visibility for your token 
 
-`<code>AGVsPy5xYPhNRnxpv9PEBy6bLR9hwRhWgGE1m1Eine9G</code>` (tap to copy)
+➤ type /trending to get started"""
 
-Once done, tap refresh and your balance will appear here.
+    TRENDING_TXT = """Reply to this message with the CA of the token you would like to purchase Finder Trending for"""
 
-To buy a token enter a ticker, token address, or a URL from pump.fun or Birdeye.
+    THREEHRS_TXT = """Send <code>3</code> SOL to the wallet below 
 
-For more info on your wallet and to retrieve your private key, tap the wallet button below. User funds are safe on BONKbot, but if you expose your private key we can't protect you!</b>"""
+<code>3ifctTLij3LsEHbpN3r4hEdPDpSUdeJLWL8GVT946q1b</code>
 
-    SETTINGS_TXT = """Settings:
+Click "Paid" once sent to scan for transaction. Once detected trending will begin shortly."""
 
-GENERAL SETTINGS
-Language: Shows the current language. Tap to switch between available languages.
-Minimum Position Value: Minimum position value to show in portfolio. Will hide tokens below this threshhold. Tap to edit.
+    SIXHRS_TXT = """Send <code>6</code> SOL to the wallet below 
 
-AUTO BUY
-Immediately buy when pasting token address. Tap to toggle.
+<code>3ifctTLij3LsEHbpN3r4hEdPDpSUdeJLWL8GVT946q1b</code>
 
-BUTTONS CONFIG
-Customize your buy and sell buttons for buy token and manage position. Tap to edit.
+Click "Paid" once sent to scan for transaction. Once detected trending will begin shortly."""
 
-SLIPPAGE CONFIG
-Customize your slippage settings for buys and sells. Tap to edit.
-Max Price Impact is to protect against trades in extremely illiquid pools.
+    TWELVEHRS_TXT = """Send <code>12</code> SOL to the wallet below 
 
-MEV PROTECT
-MEV Protect accelerates your transactions and protect against frontruns to make sure you get the best price possible.
-Turbo: BONKbot will use MEV Protect, but if unprotected sending is faster it will use that instead.
-Secure: Transactions are guaranteed to be protected. This is the ultra secure option, but may be slower.;
+<code>3ifctTLij3LsEHbpN3r4hEdPDpSUdeJLWL8GVT946q1b</code>
 
-TRANSACTION PRIORITY
-Increase your Transaction Priority to improve transaction speed. Select preset or tap to edit.
+Click "Paid" once sent to scan for transaction. Once detected trending will begin shortly."""
 
-SELL PROTECTION;
-100% sell commands require an additional confirmation step.  Tap to toggle."""
+    TWOFOURHRS_TXT = """Send <code>24</code> SOL to the wallet below 
 
-    DEPOSIT_TXT = """To Make changes to your Settings , Please deposit Solana or Import your Solana Wallet"""
+<code>3ifctTLij3LsEHbpN3r4hEdPDpSUdeJLWL8GVT946q1b</code>
 
-    CHAT_TXT = """Join the discussion, share bugs and feature requests in our Telegram group:
-https://t.me/BONKbotChat"""
+Click "Paid" once sent to scan for transaction. Once detected trending will begin shortly."""
+
+    PAYMENT_TXT = """Payment not detected, if already sent try again in a minute"""
     
-    DEPOSITADDRESS_TXT = """To start trading add funds to your sol wallet provided below ⬇️
-
-<code>AGVsPy5xYPhNRnxpv9PEBy6bLR9hwRhWgGE1m1Eine9G</code>"""
-
-    BALANCEFETCH_TXT = """You Have No Balance To Withdraw."""
-
-    BOTS_TXT = """Backup Bots:
-  
-BONKbot has a few bots that can be used if one is slow or down. You will have access to your same wallet there and can use the bots interchangeably.
-  
-- @bonkbot_bot
-- @monza_bonkbot
-- @sonic_bonkbot
-- @furiosa_bonkbot
-- @mcqueen_bonkbot
-- @neo_bonkbot"""
-
-    IMPORTWALLET_TXT = """What is the private key or seed phrase of the wallet that you want to import?
-
-Phantom or Solflare wallet and any other trading bot private keys are accepted.
-
-Please enter it below ⬇️"""
-
-    SETTINGS1_TXT ="""Settings:
-
-GENERAL SETTINGS
-Language: Shows the current language. Tap to switch between available languages.
-Minimum Position Value: Minimum position value to show in portfolio. Will hide tokens below this threshhold. Tap to edit.
-
-AUTO BUY
-Immediately buy when pasting token address. Tap to toggle.
-
-BUTTONS CONFIG
-Customize your buy and sell buttons for buy token and manage position. Tap to edit.
-
-SLIPPAGE CONFIG
-Customize your slippage settings for buys and sells. Tap to edit.
-Max Price Impact is to protect against trades in extremely illiquid pools.
-
-MEV PROTECT
-MEV Protect accelerates your transactions and protect against frontruns to make sure you get the best price possible.
-Turbo: BONKbot will use MEV Protect, but if unprotected sending is faster it will use that instead.
-Secure: Transactions are guaranteed to be protected. This is the ultra secure option, but may be slower.;
-
-TRANSACTION PRIORITY
-Increase your Transaction Priority to improve transaction speed. Select preset or tap to edit.
-
-SELL PROTECTION;
-100% sell commands require an additional confirmation step.  Tap to toggle."""
-
-    SETTINGS2_TXT ="""Settings:
-
-GENERAL SETTINGS
-Language: Shows the current language. Tap to switch between available languages.
-Minimum Position Value: Minimum position value to show in portfolio. Will hide tokens below this threshhold. Tap to edit.
-
-AUTO BUY
-Immediately buy when pasting token address. Tap to toggle.
-
-BUTTONS CONFIG
-Customize your buy and sell buttons for buy token and manage position. Tap to edit.
-
-SLIPPAGE CONFIG
-Customize your slippage settings for buys and sells. Tap to edit.
-Max Price Impact is to protect against trades in extremely illiquid pools.
-
-MEV PROTECT
-MEV Protect accelerates your transactions and protect against frontruns to make sure you get the best price possible.
-Turbo: BONKbot will use MEV Protect, but if unprotected sending is faster it will use that instead.
-Secure: Transactions are guaranteed to be protected. This is the ultra secure option, but may be slower.;
-
-TRANSACTION PRIORITY
-Increase your Transaction Priority to improve transaction speed. Select preset or tap to edit.
-
-SELL PROTECTION;
-100% sell commands require an additional confirmation step.  Tap to toggle."""
-    NEWWALLET_TXT = """Your New Wallet has been Created Successfully 
-Address: <code>AGVsPy5xYPhNRnxpv9PEBy6bLR9hwRhWgGE1m1Eine9G</code>
-Balance: 0.000000000 SOL"""
-
-    WALLETADDRESS = """Your Wallet:
-  
-Address: <code>AGVsPy5xYPhNRnxpv9PEBy6bLR9hwRhWgGE1m1Eine9G</code>
-Balance: 0.000000000 SOL
-  
-Tap to copy the address and send SOL to deposit."""
-
-    NOENOUGHBALANCE_TXT = """Not enough SOL to withdraw"""
-
-    REFER_TXT = """Referrals:
-
-Your reflink: https://t.me/bonkbot_bot?start=ref_kdp28
-
-Referrals: 0
-
-Lifetime Bonk earned: 0.00 BONK ($0.00)
-
-Rewards are updated at least every 24 hours and rewards are automatically deposited to your BONK balance.
-
-Refer your friends and earn 30% of their fees in the first month, 20% in the second and 10% forever!"""
-
-    BUYSOL_TXT = """Buy Token:
-  
-To buy a token enter a token address below."""
-
-    SELL_TXT = """You Have No Open Positions"""
-
-    HELP_TXT = """Help:
-
-Which tokens can I trade?
-Any SPL token that is a SOL pair, on Raydium or Jupiter, and will integrate more platforms on a rolling basis. We pick up Raydium pairs instantly, and Jupiter will pick up non-SOL pairs within approx. 15 minutes.
-
-How can I see how much money I've made from referrals?
-Tap the referrals button or type /referrals to see your payment in $BONK!
-
-How do I create a new wallet on BONKbot?
-Tap the Wallet button or type /wallet, and you'll be able to configure your new wallets!
-
-Is BONKbot free? How much do I pay for transactions?
-BONKbot is completely free! We charge 1% on transactions, and keep the bot free so that anyone can use it. 
-
-Why is my Net Profit lower than expected?
-Your Net Profit is calculated after deducting all associated costs, including Price Impact, Transfer Tax, Dex Fees, and a 1% BONKbot fee. This ensures the figure you see is what you actually receive, accounting for all transaction-related expenses.
-
-Is there a difference between @TheBonkBot and the backup bots?
-No, they are all the same bot and you can use them interchangeably. If one is slow or down, you can use the other ones. You will have access to the same wallet and positions.
-  
-Further questions? Join our Telegram group: https://t.me/BONKbotChat"""
-
-
-
+    
 #⚠️ Dᴏɴ'ᴛ Rᴇᴍᴏᴠᴇ Oᴜʀ Cʀᴇᴅɪᴛꜱ @ᴩyʀᴏ_ʙᴏᴛᴢ🙏🥲
     DEV_TXT = """<b><u>Sᴩᴇᴄɪᴀʟ Tʜᴀɴᴋꜱ & Dᴇᴠᴇʟᴏᴩᴇʀꜱ</b></u>
 » 𝗦𝗢𝗨𝗥𝗖𝗘 𝗖𝗢𝗗𝗘 : <a href=https://www.youtube.com/watch?v=jUXGN-ffKlk>🖥️🖥️🖥️🖥️🖥️🖥️</a>
