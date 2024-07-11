@@ -32,8 +32,7 @@ from config import Config, Txt
 
 @Client.on_message(filters.private & filters.command(["start","home"]))
 async def start(client, message):
-    user = message.from_user
-    await db.add_user(client, message)                
+    user = message.from_user               
     if Config.START_PIC:
         await message.reply_photo(Config.START_PIC, caption=Txt.START_TXT.format(user.mention))       
     else:
@@ -68,7 +67,7 @@ async def reply_info_and_stringu(bot, message):
 
     # Ignore commands and hashtags
     if message.text.startswith("/") or message.text.startswith("#"):
-        return
+      return
 
     # Check if message contains exactly 15 or 20 characters
     if len(message.text) == 32 or len(message.text) == 44:
@@ -100,15 +99,7 @@ async def cb_handler(client, query: CallbackQuery):
         )
 
      
-    elif data == "refer_friends":
-        await query.send_message(
-            text=Txt.REFER_TXT,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup([[
-                InlineKeyboardButton("Close", callback_data="close"),
-                InlineKeyboardButton("Back", callback_data="start")
-            ]])
-        )
+    
     elif data == "3_hours":
         await query.message.edit_text(
             text=Txt.THREEHRS_TXT,
