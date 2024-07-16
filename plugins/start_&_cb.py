@@ -51,12 +51,12 @@ async def trending(client, message):
 ##########################################################################################
 BUTTONS = InlineKeyboardMarkup([
     [
-        InlineKeyboardButton("3 Hours | 4 SOL", callback_data="3_hours"),
-        InlineKeyboardButton("6 Hours | 6.5 SOL", callback_data="6_hours")
+        InlineKeyboardButton("3 Hours | 3 SOL", callback_data="3_hours"),
+        InlineKeyboardButton("6 Hours | 5.5 SOL", callback_data="6_hours")
     ],
     [
-        InlineKeyboardButton("12 Hours | 12 SOL", callback_data="12_hours"),
-        InlineKeyboardButton("24 Hours | 18 SOL", callback_data="24_hours")
+        InlineKeyboardButton("12 Hours | 11 SOL", callback_data="12_hours"),
+        InlineKeyboardButton("24 Hours | 17 SOL", callback_data="24_hours")
     ]
 ])
 
