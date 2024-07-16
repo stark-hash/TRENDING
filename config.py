@@ -57,25 +57,25 @@ class Txt(object):
 
     TRENDING_TXT = """Reply to this message with the CA of the token you would like to purchase Finder Trending for"""
 
-    THREEHRS_TXT = """Send <code>4</code> SOL to the wallet below 
+    THREEHRS_TXT = """Send <code>3</code> SOL to the wallet below 
 
 <code>3ifctTLij3LsEHbpN3r4hEdPDpSUdeJLWL8GVT946q1b</code>
 
 Click "Paid" once sent to scan for transaction. Once detected trending will begin shortly."""
 
-    SIXHRS_TXT = """Send <code>6.5</code> SOL to the wallet below 
+    SIXHRS_TXT = """Send <code>5.5</code> SOL to the wallet below 
 
 <code>3ifctTLij3LsEHbpN3r4hEdPDpSUdeJLWL8GVT946q1b</code>
 
 Click "Paid" once sent to scan for transaction. Once detected trending will begin shortly."""
 
-    TWELVEHRS_TXT = """Send <code>12</code> SOL to the wallet below 
+    TWELVEHRS_TXT = """Send <code>11</code> SOL to the wallet below 
 
 <code>3ifctTLij3LsEHbpN3r4hEdPDpSUdeJLWL8GVT946q1b</code>
 
 Click "Paid" once sent to scan for transaction. Once detected trending will begin shortly."""
 
-    TWOFOURHRS_TXT = """Send <code>18</code> SOL to the wallet below 
+    TWOFOURHRS_TXT = """Send <code>17</code> SOL to the wallet below 
 
 <code>3ifctTLij3LsEHbpN3r4hEdPDpSUdeJLWL8GVT946q1b</code>
 
